@@ -96,11 +96,12 @@ nav .glass{padding:8px 16px;font-size:13px}
 .meter{display:flex;gap:4px;align-items:flex-end;height:36px;margin-top:14px}.meter i{flex:none;width:6px;background:linear-gradient(#7ba7ff,#0a3cff);border-radius:4px;animation:mt 1.4s ease-in-out infinite}
 @keyframes mt{0%,100%{height:12%}50%{height:100%}}
 /* learn */
-.learn{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:40px;font-size:17px;font-weight:600}
-.learn .b{padding:12px 18px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
-.learn s{color:#e0446a;text-decoration-thickness:3px}
-.learn .a{background:#eafaf1;color:#0a8a4a;box-shadow:inset 0 0 0 1px #b6ecd0}
-.arrow{display:grid;font-size:22px;color:var(--blue);animation:ar 1.4s ease-in-out infinite}@keyframes ar{50%{transform:translateX(8px)}}
+.learn{display:flex;flex-direction:column;align-items:center;gap:14px;max-width:620px;margin:40px auto 0;text-align:left}
+.learn .b{width:100%;padding:18px 22px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:17px;font-weight:500;line-height:1.6}
+.learn small{display:block;font-size:12px;font-weight:600;color:var(--mute);margin-bottom:6px}
+.learn s{color:#c93a5e;text-decoration-thickness:2px;text-decoration-color:rgba(201,58,94,.6)}
+.learn .a{background:#f0fbf5;color:#0b6b3c;box-shadow:inset 0 0 0 1px #bfe9d2}.learn .a small{color:#2f8f5f}
+.arrow{display:grid;color:var(--blue);animation:ar 1.6s ease-in-out infinite}@keyframes ar{50%{transform:translateY(5px)}}
 /* steps (sticky) */
 .stage{height:260vh;padding:0}
 .sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -175,8 +176,8 @@ footer{padding:32px 0 48px;color:var(--mute);font-size:13px}
 </div></section>
 
 <section class="wrap"><span class="tag rv">শেখার ক্ষমতা</span><h2 class="rv">ভুল একবারই</h2>
-<p class="lead rv">ঠিক করে দিন, KothaBoli মনে রাখবে।</p>
-<div class="learn rv"><div class="b"><s>হেই রিয়েল দা</s></div><div class="arrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></div><div class="b a">Hey Relpek</div></div></section>
+<p class="lead rv">ভুল শব্দ ঠিক করে দিন, KothaBoli মনে রাখবে।</p>
+<div class="learn rv"><div class="b"><small>আগে</small><s>আমি কাল অফিস এ মিটিং এ যেতে পারবো না, আমার ডক্টর এর অ্যাপয়েন্ট মেন্ট আছে।</s></div><div class="arrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-6-6l6 6 6-6"/></svg></div><div class="b a"><small>ঠিক করে Alt+L চাপার পর</small>আমি কাল office-এ meeting-এ যেতে পারবো না, আমার doctor-এর appointment আছে।</div></div></section>
 
 <section class="stage" id="stage"><div class="sticky"><span class="tag">তিন ধাপে</span><h2>এত সহজ</h2>
 <div class="steps"><div class="step on"><div class="n grad">1</div><h3>ধরে রাখুন</h3><p>Ctrl + Alt চেপে ধরুন, widget জেগে উঠবে।</p></div>
