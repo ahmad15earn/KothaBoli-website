@@ -129,12 +129,23 @@ details p{margin-top:10px;color:var(--mute);font-size:14px}
 .final .box:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 20% 0,rgba(255,255,255,.35),transparent)}
 .final .box>*{position:relative}.final h2{color:#fff}.final p{color:rgba(255,255,255,.85);margin:12px auto 26px;max-width:420px;font-size:15px}
 footer{padding:32px 0 48px;color:var(--mute);font-size:13px}
+
+.glass.ghost{color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:44px auto 0;text-align:left}
+.two .card{grid-column:auto;display:flex;flex-direction:column;align-items:flex-start}
+.two .card .glass{margin-top:18px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.soc{display:flex;gap:10px;justify-content:center;margin-bottom:18px}
+.soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:rgba(255,255,255,.75);box-shadow:inset 0 0 0 1px var(--line),0 6px 14px -8px rgba(10,60,255,.3);transition:transform .3s var(--ease),color .3s}
+.soc a:hover{transform:translateY(-2px);color:var(--blue)}
+.soc svg,.glass svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{color:var(--blue)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}.step{opacity:1;position:static;margin-bottom:12px}.stage{height:auto}.sticky{position:static;height:auto}.steps{height:auto}}
 </style>
 </head>
 <body>
 <div id="bar"></div>
-<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#demo">ট্রাই করুন</a><a class="l" href="#features">ফিচার</a><a class="l" href="#faq">FAQ</a>
+<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#demo">ট্রাই করুন</a><a class="l" href="#features">ফিচার</a><a class="l" href="#faq">FAQ</a><a class="l" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a>
 <a class="glass dl" href="/downloads/KothaBoli-Setup.exe" download>Download</a></nav>
 
 <header class="hero wrap" style="text-align:center">
@@ -198,16 +209,20 @@ footer{padding:32px 0 48px;color:var(--mute);font-size:13px}
 <details><summary>সত্যিই ফ্রি?</summary><p>হ্যাঁ, সম্পূর্ণ ফ্রি ও ওপেন সোর্স।</p></details>
 <details><summary>ইন্টারনেট ছাড়া চলে?</summary><p>চলে। নেট না থাকলে Faster-Whisper মডেল অফলাইনে কাজ করে।</p></details>
 <details><summary>কীভাবে শুরু করব?</summary><p>Setup ফাইল ডাউনলোড করে ইনস্টল করুন। তারপর যেকোনো জায়গায় Ctrl+Alt ধরে কথা বলুন।</p></details>
+<details><summary>কোনো সমস্যা হলে?</summary><p>ahmad15earn@gmail.com-এ ইমেইল করুন, ঠিক করার চেষ্টা করব।</p></details>
 <details><summary>Windows SmartScreen সতর্কতা দিলে?</summary><p>নতুন অ্যাপে এটা স্বাভাবিক। "More info" চেপে "Run anyway" বেছে নিন।</p></details>
 </div></section>
 
+<section class="wrap"><span class="tag rv">ওপেন সোর্স ও যোগাযোগ</span><h2 class="rv">সবার জন্য, সবার সাথে</h2>
+<div class="two"><div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div><h3>GitHub-এ Star দিন</h3><p>KothaBoli ওপেন সোর্স। ভালো লাগলে একটা Star দিয়ে পাশে থাকুন।</p><a class="glass light" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="i"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>Star দিন</a></div>
+<div class="card rv d1"><div class="ic"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><h3>সমস্যা হচ্ছে?</h3><p>ইমেইলে জানান, ঠিক করার চেষ্টা করব।</p><a class="glass light" href="mailto:ahmad15earn@gmail.com?subject=KothaBoli" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="i"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>ahmad15earn@gmail.com</a></div></div></section>
 <section class="final wrap"><div class="box rv"><img src="assets/logo.png" alt="" style="width:72px;border-radius:20px;margin-bottom:20px"><h2>আজই শুরু করুন</h2><p>Windows 10 ও 11-এর জন্য ফ্রি।</p>
 <a class="glass light dl" href="/downloads/KothaBoli-Setup.exe" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>ডাউনলোড</a></div></section>
-<footer class="wrap" style="text-align:center">© 2026 KothaBoli</footer>
+<footer class="wrap" style="text-align:center"><div class="soc"><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" ><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" ><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" ><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="mailto:ahmad15earn@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>তৈরি করেছেন <a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">@ahmadrofitw</a> · © 2026 KothaBoli</footer>
 
 <script>
 // ডাউনলোড লিংক এখানে বদলান (ফাইল 100MB-এর বেশি হলে GitHub Releases লিংক দিন)
-const DOWNLOAD_URL="https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.0.0/KothaBoli-Setup.exe";
+const DOWNLOAD_URL="/downloads/KothaBoli-Setup.exe";
 document.querySelectorAll(".dl").forEach(a=>a.href=DOWNLOAD_URL);
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 // reveal
