@@ -1,0 +1,1 @@
+{"cleanUrls":true,"headers":[{"source":"/downloads/(.*)\\.exe","headers":[{"key":"Content-Disposition","value":"attachment"}]},{"source":"/assets/(.*)","headers":[{"key":"Cache-Control","value":"public, max-age=31536000, immutable"}]}]}

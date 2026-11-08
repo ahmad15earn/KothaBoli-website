@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KothaBoli (কথা বলি) — বাংলা ও ইংরেজি, শুধু কণ্ঠে টাইপ করুন</title>
+<meta name="description" content="Windows 10 ও 11-এর জন্য ফ্রি ও ওপেন সোর্স ভয়েস টাইপিং। বাংলা আর ইংরেজি একই বাক্যে।">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f8ff;--ink:#0b1b3a;--mute:#5b6b8c;--blue:#0a3cff;--sky:#7ba7ff;--card:rgba(255,255,255,.7);--line:rgba(10,60,255,.12);--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,"Hind Siliguri",system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60vw 50vh at 15% 8%,#cfe0ff,transparent),radial-gradient(50vw 50vh at 90% 30%,#d9f0ff,transparent),radial-gradient(60vw 60vh at 40% 95%,#e3e9ff,transparent)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
+h1{font-size:clamp(40px,8vw,92px);font-weight:800}
+h2{font-size:clamp(32px,5.5vw,64px);font-weight:800}
+p.lead{font-size:clamp(17px,2vw,22px);color:var(--mute);max-width:640px;margin:20px auto 0}
+.grad{background:linear-gradient(100deg,#0a3cff,#4aa3ff 50%,#0a3cff);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:200%}}
+section{padding:120px 0;position:relative;text-align:center}
+.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--blue);background:rgba(10,60,255,.08);padding:6px 14px;border-radius:99px;margin-bottom:18px}
+/* liquid glass button */
+.glass{position:relative;display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:99px;font:600 17px Inter,"Hind Siliguri";color:#fff;text-decoration:none;border:0;cursor:pointer;overflow:hidden;isolation:isolate;
+background:linear-gradient(180deg,rgba(90,150,255,.95),rgba(10,60,255,.95));
+box-shadow:inset 0 1.5px 1px rgba(255,255,255,.9),inset 0 -8px 14px rgba(0,20,120,.35),inset 0 0 0 1px rgba(255,255,255,.25),0 12px 30px -6px rgba(10,60,255,.55),0 2px 6px rgba(10,60,255,.3);
+transition:transform .35s var(--ease),box-shadow .35s}
+.glass:before{content:"";position:absolute;left:8%;right:8%;top:2px;height:48%;border-radius:99px;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,0));z-index:-1}
+.glass:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .8s var(--ease);z-index:-1}
+.glass:hover{transform:translateY(-3px) scale(1.04)}.glass:hover:after{left:130%}
+.glass:active{transform:scale(.96);transition-duration:.1s}
+.glass.light{color:var(--blue);background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(220,233,255,.8));box-shadow:inset 0 1.5px 1px #fff,inset 0 -6px 12px rgba(10,60,255,.12),inset 0 0 0 1px rgba(10,60,255,.12),0 10px 24px -8px rgba(10,60,255,.3)}
+.glass.light:before{background:linear-gradient(180deg,rgba(255,255,255,.9),transparent)}
+.glass svg{width:20px;height:20px}
+/* nav */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:22px;padding:8px 10px 8px 18px;border-radius:99px;background:rgba(255,255,255,.65);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);box-shadow:0 8px 30px rgba(10,40,120,.1),inset 0 0 0 1px rgba(255,255,255,.8)}
+nav b{display:flex;align-items:center;gap:8px;font-size:16px}nav img{width:26px;border-radius:7px}
+nav a.l{color:var(--mute);text-decoration:none;font-size:14px;font-weight:500}nav a.l:hover{color:var(--ink)}
+nav .glass{padding:9px 18px;font-size:14px}
+@media(max-width:640px){nav a.l{display:none}}
+/* progress */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#0a3cff,#7ba7ff);z-index:60}
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:130px}
+.hero .logo{width:92px;border-radius:24px;margin:0 auto 26px;box-shadow:0 20px 40px -10px rgba(10,60,255,.5);animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-10px) rotate(2deg)}}
+.type{display:block;min-height:1.2em}.caret{display:inline-block;width:3px;height:.9em;background:var(--blue);margin-left:4px;vertical-align:-.08em;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.meta{margin-top:18px;font-size:14px;color:var(--mute)}
+.shot{margin:70px auto 0;max-width:980px;perspective:1400px}
+.shot .win{border-radius:18px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(10,60,255,.45),0 0 0 1px rgba(10,60,255,.1);transition:transform .15s linear;transform-style:preserve-3d;background:#fff}
+.shot img{display:block;width:100%}
+/* floating blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:-1;will-change:transform}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px) scale(.97);filter:blur(8px);transition:all 1s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+/* scroll-filled paragraph */
+.fill{font-size:clamp(26px,4.6vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.3;max-width:980px;margin:0 auto;text-align:left}
+.fill span{color:rgba(11,27,58,.14);transition:color .3s}.fill span.on{color:var(--ink)}
+/* demo */
+.demo{max-width:780px;margin:50px auto 0;border-radius:32px;padding:40px 30px 34px;background:var(--card);backdrop-filter:blur(20px);box-shadow:0 30px 70px -30px rgba(10,60,255,.35),inset 0 0 0 1px #fff}
+.island{margin:0 auto 26px;width:150px;height:36px;border-radius:99px;background:#0b1b3a;display:flex;align-items:center;justify-content:center;gap:4px;transition:width .6s var(--ease),height .6s var(--ease);color:#fff;font-size:13px}
+.island.on{width:260px;height:48px}
+.island i{display:block;width:4px;height:6px;border-radius:4px;background:#7ba7ff}
+.island.on i{animation:wv .8s ease-in-out infinite}
+@keyframes wv{50%{height:24px}}
+.island i:nth-child(2n){animation-delay:.15s}.island i:nth-child(3n){animation-delay:.3s}.island i:nth-child(5n){animation-delay:.45s}
+.out{min-height:96px;font-size:clamp(20px,3vw,30px);font-weight:600;color:var(--ink);padding:16px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);text-align:left}
+.keys{display:flex;gap:12px;justify-content:center;margin-top:26px}
+.key{padding:14px 26px;border-radius:14px;font-weight:700;background:linear-gradient(#fff,#e7eeff);box-shadow:0 5px 0 #b9c9f5,0 10px 18px rgba(10,60,255,.15);cursor:pointer;user-select:none;transition:transform .08s,box-shadow .08s}
+.key.dn{transform:translateY(5px);box-shadow:0 0 0 #b9c9f5,0 3px 8px rgba(10,60,255,.2);color:var(--blue)}
+.hint{margin-top:18px;font-size:14px;color:var(--mute)}
+/* swap words */
+.swap{font-size:clamp(28px,5vw,56px);font-weight:800;min-height:2.6em}
+.chip{display:inline-block;padding:4px 16px;border-radius:16px;margin:4px;transition:all .6s var(--ease)}
+.chip.bn{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.chip.en{background:linear-gradient(180deg,#6ea0ff,#0a3cff);color:#fff;box-shadow:0 10px 24px -8px rgba(10,60,255,.6)}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:60px;text-align:left}
+.card{grid-column:span 2;padding:30px;border-radius:28px;background:var(--card);backdrop-filter:blur(16px);box-shadow:0 20px 50px -28px rgba(10,60,255,.35),inset 0 0 0 1px #fff;transition:transform .5s var(--ease),box-shadow .5s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 34px 60px -26px rgba(10,60,255,.5),inset 0 0 0 1px #fff}
+.card.w{grid-column:span 3}.card.x{grid-column:span 4}
+.card h3{font-size:22px;margin:16px 0 8px;letter-spacing:-.02em}.card p{color:var(--mute);font-size:15.5px}
+.ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:26px;background:linear-gradient(180deg,#fff,#dbe7ff);box-shadow:inset 0 1px 1px #fff,0 8px 18px -6px rgba(10,60,255,.4)}
+@media(max-width:800px){.card,.card.w,.card.x{grid-column:span 6}}
+.meter{display:flex;gap:5px;align-items:flex-end;height:50px;margin-top:18px}.meter i{flex:1;background:linear-gradient(#7ba7ff,#0a3cff);border-radius:4px;animation:mt 1.4s ease-in-out infinite}
+@keyframes mt{0%,100%{height:12%}50%{height:100%}}
+/* learn */
+.learn{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:50px;font-size:clamp(18px,3vw,28px);font-weight:600}
+.learn .b{padding:16px 22px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.learn s{color:#e0446a;text-decoration-thickness:3px}
+.learn .a{background:#eafaf1;color:#0a8a4a;box-shadow:inset 0 0 0 1px #b6ecd0}
+.arrow{font-size:34px;color:var(--blue);animation:ar 1.4s ease-in-out infinite}@keyframes ar{50%{transform:translateX(8px)}}
+/* steps (sticky) */
+.stage{height:320vh;padding:0}
+.sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.steps{position:relative;width:min(560px,90vw);height:300px;margin-top:40px}
+.step{position:absolute;inset:0;padding:36px;border-radius:32px;background:var(--card);backdrop-filter:blur(18px);box-shadow:0 30px 70px -30px rgba(10,60,255,.4),inset 0 0 0 1px #fff;opacity:0;transform:translateY(60px) scale(.9);transition:all .7s var(--ease);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.step.on{opacity:1;transform:none}
+.step .n{font-size:72px;font-weight:800;line-height:1}.step h3{font-size:28px;margin:10px 0 6px}.step p{color:var(--mute)}
+.dots{display:flex;gap:8px;margin-top:26px}.dots i{width:8px;height:8px;border-radius:9px;background:#c5d3f5;transition:all .4s}.dots i.on{width:28px;background:var(--blue)}
+/* shortcuts */
+.sc{max-width:760px;margin:50px auto 0;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(10,60,255,.4),0 0 0 1px var(--line);background:#fff}.sc img{display:block;width:100%}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:60px}
+.stats b{display:block;font-size:clamp(48px,7vw,84px);font-weight:800;letter-spacing:-.04em}.stats span{color:var(--mute)}
+/* marquee */
+.mq{overflow:hidden;padding:30px 0;white-space:nowrap;border-block:1px solid var(--line);background:rgba(255,255,255,.4)}
+.mq div{display:inline-block;animation:mq 30s linear infinite;font-size:clamp(24px,4vw,44px);font-weight:700;color:rgba(11,27,58,.25)}.mq div span{margin:0 24px}.mq div span:nth-child(3n){color:var(--blue)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* faq */
+.faq{max-width:760px;margin:50px auto 0;text-align:left}
+details{background:var(--card);border-radius:20px;padding:20px 26px;margin-bottom:12px;box-shadow:inset 0 0 0 1px #fff,0 10px 30px -20px rgba(10,60,255,.3);transition:transform .3s}
+details:hover{transform:scale(1.01)}summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between}summary:after{content:"+";font-size:26px;color:var(--blue);transition:transform .3s}details[open] summary:after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--mute)}
+/* final */
+.final{padding:140px 0 60px}
+.final .box{border-radius:48px;padding:80px 24px;background:linear-gradient(160deg,#0a3cff,#5b95ff);color:#fff;position:relative;overflow:hidden;box-shadow:0 50px 100px -40px rgba(10,60,255,.7)}
+.final .box:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0,rgba(255,255,255,.45),transparent 50%);animation:gl 8s ease-in-out infinite alternate}
+@keyframes gl{to{transform:translateX(30%)}}
+.final .box>*{position:relative}.final h2{color:#fff}.final p{color:rgba(255,255,255,.85);margin:16px auto 34px;max-width:520px}
+footer{padding:40px 0 60px;color:var(--mute);font-size:14px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}.step{opacity:1;position:static;margin-bottom:12px}.stage{height:auto}.sticky{position:static;height:auto}.steps{height:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#demo">ট্রাই করুন</a><a class="l" href="#features">ফিচার</a><a class="l" href="#faq">FAQ</a>
+<a class="glass dl" href="/downloads/KothaBoli-Setup.exe" download>Download</a></nav>
+
+<header class="hero wrap" style="text-align:center">
+<div class="blob" style="width:420px;height:420px;background:#8fb5ff;left:-120px;top:120px" data-s=".15"></div>
+<div class="blob" style="width:380px;height:380px;background:#9fe3ff;right:-100px;top:340px" data-s="-.1"></div>
+<img class="logo" src="assets/logo.png" alt="KothaBoli logo">
+<h1>কথা বলুন।<br><span class="grad type" id="tw"></span><span class="caret"></span></h1>
+<p class="lead">বাংলা আর English, একই বাক্যে। শুধু কণ্ঠে টাইপ করুন, যেকোনো জায়গায়। ফ্রি ও ওপেন সোর্স।</p>
+<div class="cta"><a class="glass dl" href="/downloads/KothaBoli-Setup.exe" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Windows-এর জন্য ডাউনলোড</a><a class="glass light" href="#demo">লাইভ ট্রাই করুন</a></div>
+<p class="meta">Windows 10 ও Windows 11 · সম্পূর্ণ ফ্রি</p>
+<div class="shot"><div class="win" id="win"><img src="assets/app.webp" alt="KothaBoli app" width="1080" height="751"></div></div>
+</header>
+
+<div class="mq"><div id="mq"></div></div>
+
+<section class="wrap"><span class="tag rv">কেন KothaBoli</span>
+<p class="fill" id="fill">টাইপ করতে করতে হাত ক্লান্ত? শুধু কথা বলুন। বাংলা, English, বাংলিশ, যেভাবে মুখে আসে সেভাবেই। কোনো মোড বদলানো নেই, কোনো ঝামেলা নেই। বাকিটা KothaBoli সামলে নেবে।</p></section>
+
+<section id="demo" class="wrap"><span class="tag rv">লাইভ ডেমো</span><h2 class="rv">নিজে <span class="grad">ট্রাই</span> করুন</h2>
+<p class="lead rv">নিচের Ctrl+Alt বাটন চেপে ধরে রাখুন, ছাড়লেই লেখা বসে যাবে। (এটা ডেমো, আসল অ্যাপে আপনার কণ্ঠ শোনে।)</p>
+<div class="demo rv"><div class="island" id="isl"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><small id="il" style="margin:0 8px;display:none">Listening…</small></div>
+<div class="out" id="out">এখানে আপনার লেখা আসবে…</div>
+<div class="keys"><div class="key" id="k1">Ctrl</div><div class="key" id="k2">Alt</div></div>
+<p class="hint">মোবাইলে চেপে ধরে রাখুন · কিবোর্ডে Ctrl + Alt একসাথে ধরুন</p></div></section>
+
+<section class="wrap"><span class="tag rv">বাংলিশ</span><h2 class="rv">একই বাক্যে, <span class="grad">দুই ভাষা</span></h2>
+<p class="lead rv">যেমন বললেন, তেমনই টাইপ হয়। ভাষা পাল্টানোর দরকার নেই।</p>
+<div class="swap rv" id="swap" style="margin-top:50px"></div></section>
+
+<section id="features" class="wrap"><span class="tag rv">ফিচার</span><h2 class="rv">ছোট অ্যাপ, <span class="grad">বড় ক্ষমতা</span></h2>
+<div class="bento">
+<div class="card x rv"><div class="ic">🎙️</div><h3>অনলাইনে Google, অফলাইনে Faster-Whisper</h3><p>ইন্টারনেট থাকলে Google-এর দ্রুত স্পিচ ইঞ্জিন। নেট না থাকলে ডিভাইসের ভেতরের AI মডেল চলে। অফলাইনে আপনার কথা কোনো সার্ভারে যায় না।</p></div>
+<div class="card rv d1"><div class="ic">🔊</div><h3>স্মার্ট অটো-অ্যাম্পলিফিকেশন</h3><p>ফিসফিস করলে বা মাইক থেকে দূরে থাকলেও ভলিউম বেড়ে যায়।</p><div class="meter"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.5s"></i></div></div>
+<div class="card rv"><div class="ic">🤫</div><h3>বুদ্ধিমান silence-detection</h3><p>আপনি ভাবতে থামলে ডিকটেশন বন্ধ হয়ে যায় না।</p></div>
+<div class="card rv d1"><div class="ic">✍️</div><h3>নিজে নিজে ব্যাকরণ</h3><p>দাঁড়ি (।), কমা, ? আর ! বসে যায়। বানান ঠিক হয়, English-এর A/a-ও।</p></div>
+<div class="card rv d2"><div class="ic">🏝️</div><h3>Dynamic Island-এর মতো widget</h3><p>স্ক্রিনে ছোট ট্রান্সপারেন্ট ভাসমান widget, কথা বললে জেগে ওঠে।</p></div>
+<div class="card w rv"><div class="ic">🔒</div><h3>গোপনীয়তা আপনার হাতে</h3><p>অফলাইন মোডে সবকিছু আপনার পিসিতেই থাকে।</p></div>
+<div class="card w rv d1"><div class="ic">💙</div><h3>ফ্রি ও ওপেন সোর্স</h3><p>কোনো সাবস্ক্রিপশন নেই, কোনো লুকানো খরচ নেই।</p></div>
+</div></section>
+
+<section class="wrap"><span class="tag rv">শেখার ক্ষমতা</span><h2 class="rv">ভুল একবারই, <span class="grad">তারপর আর না</span></h2>
+<p class="lead rv">কোনো শব্দ ভুল লিখলে সিলেক্ট করে ঠিক করে দিন। KothaBoli মনে রাখে, পরে আর ওই ভুল করে না।</p>
+<div class="learn rv"><div class="b"><s>হেই রিয়েল দা</s></div><div class="arrow">→</div><div class="b a">Hey Relpek</div></div></section>
+
+<section class="stage" id="stage"><div class="sticky"><span class="tag">তিন ধাপে</span><h2>এত সহজ</h2>
+<div class="steps"><div class="step on"><div class="n grad">1</div><h3>ধরে রাখুন</h3><p>Ctrl + Alt চেপে ধরুন, widget জেগে উঠবে।</p></div>
+<div class="step"><div class="n grad">2</div><h3>কথা বলুন</h3><p>বাংলা, English বা বাংলিশ, যেভাবে খুশি।</p></div>
+<div class="step"><div class="n grad">3</div><h3>ছাড়ুন, লেখা তৈরি</h3><p>যেখানে কার্সর, সেখানেই টেক্সট বসে যায়।</p></div></div>
+<div class="dots"><i class="on"></i><i></i><i></i></div></div></section>
+
+<section class="wrap"><span class="tag rv">শর্টকাট</span><h2 class="rv">সব আপনার <span class="grad">হাতের মুঠোয়</span></h2>
+<p class="lead rv">Alt+1 দিয়ে সিলেক্ট করা লেখা Enhance, Alt+2 দিয়ে পুরো লেখা, Alt+L দিয়ে ভুল শেখান। সেটিংসে নিজের মতো বদলান।</p>
+<div class="sc rv"><img src="assets/shortcuts.webp" alt="Shortcuts" loading="lazy"></div></section>
+
+<section class="wrap"><h2 class="rv">সংখ্যায় <span class="grad">KothaBoli</span></h2>
+<div class="stats"><div class="rv"><b class="grad" data-n="2">0</b><span>ভাষা, একসাথে</span></div><div class="rv d1"><b class="grad" data-n="100" data-s="%">0</b><span>ফ্রি</span></div><div class="rv d2"><b class="grad" data-n="0">0</b><span>সার্ভারে সেভ হওয়া কথা (অফলাইনে)</span></div></div></section>
+
+<section id="faq" class="wrap"><span class="tag rv">প্রশ্ন-উত্তর</span><h2 class="rv">জানতে চাইলে</h2>
+<div class="faq rv">
+<details><summary>কোন Windows-এ চলবে?</summary><p>Windows 10 ও Windows 11-এ।</p></details>
+<details><summary>সত্যিই ফ্রি?</summary><p>হ্যাঁ, সম্পূর্ণ ফ্রি ও ওপেন সোর্স।</p></details>
+<details><summary>ইন্টারনেট ছাড়া চলে?</summary><p>চলে। নেট না থাকলে Faster-Whisper মডেল অফলাইনে কাজ করে।</p></details>
+<details><summary>কীভাবে শুরু করব?</summary><p>Setup ফাইল ডাউনলোড করে ইনস্টল করুন। তারপর যেকোনো জায়গায় Ctrl+Alt ধরে কথা বলুন।</p></details>
+<details><summary>Windows SmartScreen সতর্কতা দিলে?</summary><p>নতুন অ্যাপে এটা স্বাভাবিক। "More info" চেপে "Run anyway" বেছে নিন।</p></details>
+</div></section>
+
+<section class="final wrap"><div class="box rv"><img src="assets/logo.png" alt="" style="width:72px;border-radius:20px;margin-bottom:20px"><h2>আজই কথা বলে লিখুন</h2><p>বাংলা, English, বাংলিশ। নিজের ভাষায় কথা বলুন, বাকিটা KothaBoli সামলে নেবে।</p>
+<a class="glass light dl" href="/downloads/KothaBoli-Setup.exe" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>KothaBoli-Setup.exe ডাউনলোড</a></div></section>
+<footer class="wrap" style="text-align:center">© 2026 KothaBoli · Windows 10 ও 11-এর জন্য ফ্রি ভয়েস টাইপিং</footer>
+
+<script>
+// ডাউনলোড লিংক এখানে বদলান (ফাইল 100MB-এর বেশি হলে GitHub Releases লিংক দিন)
+const DOWNLOAD_URL="/downloads/KothaBoli-Setup.exe";
+document.querySelectorAll(".dl").forEach(a=>a.href=DOWNLOAD_URL);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.15});
+$$(".rv").forEach(e=>io.observe(e));
+// typewriter
+const words=["লেখা হয়ে যাক।","type করুক KothaBoli।","বাংলিশেই লিখুন।"];let wi=0,ci=0,del=0;const tw=$("#tw");
+(function t(){const w=words[wi];tw.textContent=w.slice(0,ci);if(!del&&ci++==w.length){del=1;return setTimeout(t,1600)}if(del&&--ci==0){del=0;wi=(wi+1)%words.length}setTimeout(t,del?35:80)})();
+// marquee
+$("#mq").innerHTML=("<span>বাংলা</span><span>English</span><span>বাংলিশ</span><span>Offline AI</span><span>ফ্রি</span><span>Windows 10 &amp; 11</span>").repeat(8);
+// fill paragraph
+const f=$("#fill");f.innerHTML=f.textContent.split(" ").map(w=>"<span>"+w+"</span>").join(" ");const fs=$$("#fill span");
+// scroll
+const bar=$("#bar"),bl=$$(".blob"),st=$("#stage"),stp=$$(".step"),dots=$$(".dots i");
+function sc(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;bar.style.width=y/h*100+"%";
+bl.forEach(b=>b.style.transform=`translateY(${y*b.dataset.s}px)`);
+const r=f.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.4)));fs.forEach((s,i)=>s.classList.toggle("on",i<p*fs.length*1.15));
+const sr=st.getBoundingClientRect(),q=Math.min(.999,Math.max(0,-sr.top/(sr.height-innerHeight))),k=Math.floor(q*3);stp.forEach((s,i)=>s.classList.toggle("on",i==k));dots.forEach((d,i)=>d.classList.toggle("on",i==k));}
+addEventListener("scroll",sc,{passive:true});sc();
+// tilt
+const win=$("#win");addEventListener("mousemove",e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;win.style.transform=`rotateY(${x*8}deg) rotateX(${-y*6}deg)`});
+// counters
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const el=x.target,n=+el.dataset.n,s=el.dataset.s||"";let v=0;const id=setInterval(()=>{v=Math.min(n,v+Math.ceil(n/40));el.textContent=v+s;if(v>=n)clearInterval(id)},30);co.unobserve(el)}}),{threshold:.6});$$("[data-n]").forEach(e=>co.observe(e));
+// swap chips
+const parts=[["আমার","bn"],["software","en"],["-টা","bn"],["update","en"],["করো","bn"],["কাল","bn"],["meeting","en"],["-এর","bn"],["agenda","en"],["পাঠিয়ে","bn"],["দাও","bn"]];
+const sw=$("#swap");sw.innerHTML=parts.map(([w,c],i)=>`<span class="chip ${c}" style="opacity:0;transform:translateY(20px) scale(.8)">${w}</span>`).join("");
+new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){o.disconnect();$$("#swap .chip").forEach((c,i)=>setTimeout(()=>{c.style.opacity=1;c.style.transform="none"},i*260))}},{threshold:.5}).observe(sw);
+// demo
+const phrases=["আমার software-টা update করো","Hey, কালকের meeting-এর agenda পাঠিয়ে দাও।","এই project-টা ready, আজই deploy করবো!"];let pi=0,tm;
+const out=$("#out"),isl=$("#isl"),il=$("#il"),k1=$("#k1"),k2=$("#k2");
+function down(){clearTimeout(tm);[k1,k2].forEach(k=>k.classList.add("dn"));isl.classList.add("on");il.style.display="block";out.textContent="…"}
+function up(){[k1,k2].forEach(k=>k.classList.remove("dn"));isl.classList.remove("on");il.style.display="none";const s=phrases[pi++%phrases.length];let i=0;out.textContent="";(function t(){out.textContent=s.slice(0,++i);if(i<s.length)tm=setTimeout(t,35)})()}
+[k1,k2].forEach(k=>{k.addEventListener("pointerdown",down);k.addEventListener("pointerup",up);k.addEventListener("pointerleave",e=>{if(k.classList.contains("dn"))up()})});
+let ctrl=0,alt=0,act=0;addEventListener("keydown",e=>{if(e.key=="Control")ctrl=1;if(e.key=="Alt"){alt=1;e.preventDefault()}if(ctrl&&alt&&!act){act=1;down()}});
+addEventListener("keyup",e=>{if(e.key=="Control")ctrl=0;if(e.key=="Alt")alt=0;if(act&&!(ctrl&&alt)){act=0;up()}});
+</script>
+</body>
+</html>
