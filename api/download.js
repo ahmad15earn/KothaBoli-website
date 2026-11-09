@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   // DOWNLOAD_URL env wins; GitHub release asset is the permanent fallback
   // so the download never breaks even if env vars drift.
   const link = process.env.DOWNLOAD_URL
-    || 'https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.1.0/KothaBoli-Setup.exe';
+    || 'https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.1.0/KothaBoli-Setup-v1.1.0.exe';
   if (!link) return res.status(500).json({ ok: false, error: 'not_configured' });
 
   // simple abuse limit: 10 requests / hour / IP (only when Redis is configured)
