@@ -3,7 +3,9 @@
 ## 1. Environment Variables (Vercel > Project > Settings > Environment Variables)
 - TELEGRAM_BOT_TOKEN : BotFather token (NEVER put it inside index.html or GitHub)
 - TELEGRAM_CHAT_ID   : 7973775679
-- DOWNLOAD_URL       : direct link to KothaBoli-Setup.exe (e.g. GitHub Release asset link)
+- DOWNLOAD_URL       : (optional now) defaults to the GitHub release asset:
+  https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.1.0/KothaBoli-Setup.exe
+  Set it if you attach a newer exe in a later release, or leave it empty.
 
 ## 2. Download counter (needs a tiny database)
 Vercel > Project > Storage (or Marketplace) > add **Upstash Redis** (free).

@@ -9,7 +9,10 @@ module.exports = async (req, res) => {
   const email = String((body && body.email) || '').trim().toLowerCase();
   if (email.length > 254 || !EMAIL.test(email)) return res.status(400).json({ ok: false, error: 'invalid_email' });
 
-  const link = process.env.DOWNLOAD_URL;
+  // DOWNLOAD_URL env wins; GitHub release asset is the permanent fallback
+  // so the download never breaks even if env vars drift.
+  const link = process.env.DOWNLOAD_URL
+    || 'https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.1.0/KothaBoli-Setup.exe';
   if (!link) return res.status(500).json({ ok: false, error: 'not_configured' });
 
   // simple abuse limit: 10 requests / hour / IP (only when Redis is configured)
