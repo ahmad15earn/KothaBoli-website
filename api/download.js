@@ -26,6 +26,11 @@ module.exports = async (req, res) => {
 
   let count = 0;
   try { count = Number(await redis(['INCR', 'kothaboli:downloads'])) || 0; } catch (e) {}
+  if (!count) { // no Redis configured - GitHub's own asset counter speaks
+    const { githubDownloads } = require('./_util');
+    count = await githubDownloads('Setup');
+    count = count > 0 ? count : 1; // this very download is the first one
+  }
 
   // email goes to Telegram only (nothing stored on the server)
   const token = process.env.TELEGRAM_BOT_TOKEN;
