@@ -249,7 +249,7 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <div class="mo" id="mo" aria-hidden="true"><div class="mb" id="mb" role="dialog" aria-modal="true">
 <button class="mx" id="mx" aria-label="বন্ধ করুন"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 <img src="assets/logo.png" alt=""><h3>ডাউনলোডের জন্য ইমেইল দিন</h3><p>ইমেইল দিলেই ডাউনলোড শুরু হবে।</p>
-<form id="gf" novalidate><input id="em" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+<form id="gf" novalidate><input id="em" type="email" inputmode="email" autocomplete="email" placeholder="your.name@gmail.com" required>
 <div class="err" id="er"></div><button class="glass" type="submit" id="sb">ডাউনলোড শুরু করুন</button>
 <p class="fine">আপনার ইমেইল শুধু ডেভেলপারের কাছে যাবে, সাপোর্ট ও আপডেটের জন্য।</p></form>
 <div class="ok"><h3>ধন্যবাদ</h3><p>ডাউনলোড শুরু হয়েছে। না হলে <a id="rl" href="#" style="color:var(--blue)">এখানে চাপুন</a>।</p></div></div></div>
@@ -296,11 +296,11 @@ function closeM(){mo.classList.remove("on");mo.setAttribute("aria-hidden","true"
 $$(".dl").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openM()}));
 $("#mx").onclick=closeM;mo.addEventListener("click",e=>{if(e.target===mo)closeM()});addEventListener("keydown",e=>{if(e.key=="Escape")closeM()});
 $("#gf").addEventListener("submit",async e=>{e.preventDefault();const v=em.value.trim();
-if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){er.textContent="সঠিক ইমেইল দিন";return}
+if(!/^[^\s@]+@gmail\.com$/.test(v)){er.textContent="শুধু Gmail ঠিকানা দিন (যেমন: your.name@gmail.com)";return}
 sb.disabled=true;er.textContent="";
 try{const r=await fetch("/api/download",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:v})});const j=await r.json();
 if(!r.ok||!j.ok)throw 0;setCount(j.count);$("#rl").href=j.url;mb.classList.add("done");const a=document.createElement("a");a.href=j.url;a.download="";document.body.appendChild(a);a.click();a.remove()}
-catch(x){er.textContent="কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন বা ইমেইলে জানান।"}finally{sb.disabled=false}});
+catch(x){er.textContent="কিছু একটা সমস্যা হয়েছে। শুধু Gmail ঠিকানা দিয়ে আবার চেষ্টা করুন।"}finally{sb.disabled=false}});
 // video autoplay when visible
 const dv=document.getElementById("tour");
 new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){dv.play().catch(()=>{})}else if(!dv.ended){dv.pause()}}),{threshold:.5}).observe(dv);
