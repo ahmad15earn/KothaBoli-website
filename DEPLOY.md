@@ -1,5 +1,35 @@
 # KothaBoli website: Vercel deploy
 
+## 0. Distribution trust — the honest picture
+
+Chrome's **"This file isn't commonly downloaded, and it may be dangerous"**
+is a *reputation* warning, driven by (a) the file having no Authenticode
+signature and (b) a low download count. Nothing can be "hidden" or disabled
+on our side; trust is earned by real signing + real usage over time:
+
+1. **Code signing (the main fix we can buy).** Options, cheapest first:
+   - **Azure Trusted Signing** (~$9.99/month, individual ID) — Microsoft
+     manages the cert; SmartScreen reputation accrues fastest. Needs
+     identity verification and is region-gated.
+   - **Certum "Open Source Code Signing"** (~EUR 25/year) — cheap OV cert.
+   - **Any OV Authenticode cert** (Sectigo/GlobalSign/DigiCert,
+     ~$100-300/year) — remove warnings in roughly 2-4 weeks of downloads.
+   - **EV cert** (~$300+/year, requires hardware token) — immediate
+     SmartScreen reputation.
+   Signing is wired into the build: after ISCC, run
+   `powershell -ExecutionPolicy Bypass -File tools\sign.ps1` with either
+   `KOTHABOLI_PFX`(+pass) or `KOTHABOLI_CERT_THUMB` set. It signs the
+   installer with SHA256 + timestamp and verifies the result.
+2. **Download reputation** — grows on its own as more users download the
+   same file; a signed installer with dozens of downloads usually clears
+   the Chrome warning within weeks. Nothing can shortcut this, and that is
+   by design (it is the anti-malware system working as intended).
+3. **Delivery hardening (done)** — the site serves the installer over
+   HTTPS with `Content-Disposition: attachment`, `X-Content-Type-Options:
+   nosniff`, and publishes SHA256 checksums in
+   `downloads/CHECKSUMS.txt` so anyone can verify integrity:
+   `certutil -hashfile KothaBoli-Setup.exe SHA256`.
+
 ## 1. Environment Variables (Vercel > Project > Settings > Environment Variables)
 - TELEGRAM_BOT_TOKEN : BotFather token (NEVER put it inside index.html or GitHub)
 - TELEGRAM_CHAT_ID   : 7973775679
