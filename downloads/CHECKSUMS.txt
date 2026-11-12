@@ -5,5 +5,5 @@
 # from downloads/ (the website always serves the current build).
 
 # KothaBoli-Setup.exe  (v1.2.3)
-SHA256: DDF2F1A267EEB728BFE3B46294FF745B3B8B080EB7BA62CF2E9110EA42BD2FDC
+SHA256: F6A4E238830194039042FE808C5296F437F4A89E1DEB69D3D7EF55C8181827BF
 MD5:    (verify with certutil if needed)
