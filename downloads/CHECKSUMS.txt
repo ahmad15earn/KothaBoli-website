@@ -1,9 +1,9 @@
-# KothaBoli v1.2.2 installer integrity
+# KothaBoli v1.2.3 installer integrity
 # Verify on Windows:  certutil -hashfile KothaBoli-Setup.exe SHA256
 # A matching hash proves the installer is exactly the one we published.
 # NOTE: the hash changes with every version - always take the latest file
 # from downloads/ (the website always serves the current build).
 
-# KothaBoli-Setup.exe  (v1.2.2)
-SHA256: EF360E07D53C5202E5E3E4A38106CF9FD1ABE562E413DF83349AB0A0B553C6B8
+# KothaBoli-Setup.exe  (v1.2.3)
+SHA256: DDF2F1A267EEB728BFE3B46294FF745B3B8B080EB7BA62CF2E9110EA42BD2FDC
 MD5:    (verify with certutil if needed)
