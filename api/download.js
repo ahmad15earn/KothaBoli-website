@@ -40,8 +40,24 @@ module.exports = async (req, res) => {
   // Primary: the exe ships inside this very project (`downloads/`), so the
   // click never leaves this domain - fast and reliable. Fallback: raw
   // GitHub (proven to work when release-assets CDN stalls), then env.
-  const link = process.env.DOWNLOAD_URL
-    || '/downloads/KothaBoli-Setup.exe'
-    || 'https://raw.githubusercontent.com/ahmad15earn/KothaBoli-website/main/downloads/KothaBoli-Setup.exe';
-  res.status(200).json({ ok: true, url: link, count });
+  // platform: "win" (default) | "mac-arm" | "mac-intel" - the Mac DMGs
+  // ship as release assets (public download URLs), matching how the
+  // Windows exe was first shipped.
+  const MAC_ARM_URL = process.env.MAC_ARM_URL
+    || "https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.2.4/KothaBoli-1.2.4-arm64.dmg";
+  const MAC_INTEL_URL = process.env.MAC_INTEL_URL
+    || "https://github.com/ahmad15earn/KothaBoli-website/releases/download/v1.2.4/KothaBoli-1.2.4-x86_64.dmg";
+  const plat = String((body && body.platform) || "win");
+  let link, intelUrl = null;
+  if (plat === "mac-arm") {
+    link = MAC_ARM_URL;
+    intelUrl = MAC_INTEL_URL;   // the done-screen "Intel Mac?" link
+  } else if (plat === "mac-intel") {
+    link = MAC_INTEL_URL;
+    intelUrl = MAC_ARM_URL;
+  } else {
+    link = process.env.DOWNLOAD_URL
+      || "/downloads/KothaBoli-Setup.exe";
+  }
+  res.status(200).json({ ok: true, url: link, intel_url: intelUrl, count });
 };

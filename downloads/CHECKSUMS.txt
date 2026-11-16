@@ -1,9 +1,16 @@
-# KothaBoli v1.2.3 installer integrity
-# Verify on Windows:  certutil -hashfile KothaBoli-Setup.exe SHA256
+# KothaBoli installer / dmg integrity
+# Windows:  certutil -hashfile KothaBoli-Setup.exe SHA256
+# Mac:      shasum -a 256 KothaBoli-1.2.4-*.dmg
 # A matching hash proves the installer is exactly the one we published.
 # NOTE: the hash changes with every version - always take the latest file
-# from downloads/ (the website always serves the current build).
+# (Windows exe: downloads/ · Mac dmg: GitHub release v1.2.4).
 
-# KothaBoli-Setup.exe  (v1.2.3)
+# KothaBoli-Setup.exe  (v1.2.3, Windows)
 SHA256: F6A4E238830194039042FE808C5296F437F4A89E1DEB69D3D7EF55C8181827BF
 MD5:    (verify with certutil if needed)
+
+# KothaBoli-1.2.4-arm64.dmg  (v1.2.4, Mac Apple Silicon M1/M2/M3/M4)
+SHA256: 84644164EDE4546CB2952C217F66857E4B2944726263A010BFE6BCAF6DCAAF51
+
+# KothaBoli-1.2.4-x86_64.dmg  (v1.2.4, Mac Intel)
+SHA256: C2686CBAE79AB3BA16422CFA3EB188E21BBFAFFA913A6C114C27D00301777ED1
