@@ -61,7 +61,16 @@ module.exports = async (req, res) => {
   } catch (e) {}
 
   let buf;
-  try { buf = await pull(req.body || req, MAX_BYTES); } catch (e) {
+  try {
+    const b = req.body;
+    // Vercel pre-parses the body: octet-stream arrives as a Buffer, json as
+    // an object, form as a string. Only fall back to raw-stream reading when
+    // the helper did not hand us the bytes directly.
+    if (Buffer.isBuffer(b)) buf = b;
+    else if (b instanceof Uint8Array) buf = Buffer.from(b);
+    else if (typeof b === 'string') buf = Buffer.from(b, 'binary');
+    else buf = await pull(b && b.getReader ? b : req, MAX_BYTES);
+  } catch (e) {
     return res.status(413).json({ ok: false, error: 'too_large' });
   }
   if (!buf || buf.length < 2048) return res.status(400).json({ ok: false, error: 'no_file' });
