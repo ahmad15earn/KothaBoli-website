@@ -79,10 +79,7 @@ nav .glass{padding:8px 16px;font-size:13px}
 .pkey{display:flex;align-items:center;font-size:14.5px;color:var(--mute);line-height:1.5}
 .pnote{margin-top:6px;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:13.5px;color:var(--mute);line-height:1.6}
 .pnote b{color:var(--ink)}
-/* floating message button */
-.fmsg{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;background:linear-gradient(180deg,#5a96ff,#0a3cff);box-shadow:0 14px 30px -10px rgba(10,60,255,.55),inset 0 0 0 1px rgba(255,255,255,.25);transition:transform .3s var(--ease)}
-.fmsg:hover{transform:translateY(-2px) scale(1.04)}
-.fmsg svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* message box on the page styles live with .mcard below */
 /* swap words */
 .swap{text-align:center;font-size:clamp(20px,2.8vw,30px);font-weight:600;min-height:2.6em;max-width:760px;margin:0 auto}
 .chip{display:inline-block;padding:2px 12px;border-radius:12px;margin:3px;transition:all .6s var(--ease)}
@@ -131,18 +128,29 @@ details p{margin-top:10px;color:var(--mute);font-size:14px}
 .final .box{border-radius:32px;padding:64px 24px;background:linear-gradient(160deg,#0a3cff,#4d8bff);color:#fff;position:relative;overflow:hidden;box-shadow:0 30px 60px -30px rgba(10,60,255,.55)}
 .final .box:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 20% 0,rgba(255,255,255,.35),transparent)}
 .final .box>*{position:relative}.final h2{color:#fff}.final p{color:rgba(255,255,255,.85);margin:12px auto 26px;max-width:420px;font-size:15px}
-footer{padding:32px 0 48px;color:var(--mute);font-size:13px}
-
 .glass.ghost{color:var(--ink)}
 .two{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:44px auto 0;text-align:left}
 .two .card{grid-column:auto;display:flex;flex-direction:column;align-items:flex-start}
 .two .card .glass{margin-top:18px}
 @media(max-width:700px){.two{grid-template-columns:1fr}}
-.soc{display:flex;gap:10px;justify-content:center;margin-bottom:18px}
-.soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:rgba(255,255,255,.75);box-shadow:inset 0 0 0 1px var(--line),0 6px 14px -8px rgba(10,60,255,.3);transition:transform .3s var(--ease),color .3s}
-.soc a:hover{transform:translateY(-2px);color:var(--blue)}
-.soc svg,.glass svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{color:var(--blue)}
+/* footer — professional multi-column layout */
+footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
+.fwrap{max-width:1080px;margin:0 auto;padding:56px 24px 0;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.35fr;gap:34px}
+@media(max-width:760px){.fwrap{grid-template-columns:1fr 1fr;gap:26px}}
+.fcol{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.fcol>b{font-size:12.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--mute);margin-bottom:4px}
+.fcol>a{color:var(--mute);text-decoration:none;transition:color .2s}
+.fcol>a:hover{color:var(--blue)}
+.fbrand p{color:var(--mute);font-size:13.5px;line-height:1.75;max-width:300px;margin:10px 0 14px}
+.flogo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:800;color:var(--ink)}
+.flogo img{width:26px;border-radius:8px}
+.fsoc{display:flex;gap:10px}
+.fsoc a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px var(--line),0 6px 14px -8px rgba(10,60,255,.3);transition:transform .3s var(--ease),color .3s,background .3s}
+.fsoc a:hover{transform:translateY(-2px);color:#fff;background:linear-gradient(180deg,#5a96ff,#0a3cff)}
+.fsoc svg,.glass svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fbar{max-width:1080px;margin:44px auto 0;padding:16px 24px 22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--mute);font-size:13px}
+.fbar a{color:var(--ink);text-decoration:none;font-weight:500}
+.fbar a:hover{color:var(--blue)}
 .vid{max-width:940px;margin:14px auto 0;border-radius:20px;overflow:hidden;background:#0b1b3a;box-shadow:0 30px 60px -28px rgba(10,40,120,.4),0 0 0 1px rgba(10,60,255,.08)}
 .vtitle{margin:40px auto 0;font-size:18px;font-weight:600}
 .vid video{display:block;width:100%;height:auto;aspect-ratio:16/9}
@@ -277,7 +285,14 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <p class="fine">মেসেজটা সরাসরি ডেভেলপারের Telegram-এ যাবে, কোথাও জমা থাকে না।</p></form>
 <div class="ok"><h3>পাঠানো হয়েছে</h3><p>ধন্যবাদ! মেসেজটা ডেভেলপারের কাছে পৌঁছে গেছে।</p></div></div></section>
 
-<footer class="wrap" style="text-align:center"><div class="soc"><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" ><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" ><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" ><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="mailto:ahmad15earn@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>তৈরি করেছেন <a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">@ahmadrofitw</a> · © 2026 KothaBoli</footer>
+<footer><div class="fwrap">
+<div class="fcol fbrand"><b class="flogo"><img src="assets/logo.png" alt="">KothaBoli</b><p>বাংলা ও ইংরেজি — শুধু কথা বলুন, লেখা হয়ে যাবে। Windows 10/11 এবং Mac-এর জন্য ফ্রি ও ওপেন সোর্স ভয়েস টাইপিং।</p>
+<div class="fsoc"><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" ><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" ><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" ><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="mailto:ahmad15earn@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div></div>
+<div class="fcol"><b>পণ্য</b><a href="#get">ডাউনলোড</a><a href="#features">ফিচার</a><a href="#howto">ব্যবহার নির্দেশনা</a><a href="#video">ভিডিও</a></div>
+<div class="fcol"><b>সাহায্য</b><a href="#faq">প্রশ্ন-উত্তর</a><a href="#message">মেসেজ পাঠান</a><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a></div>
+<div class="fcol"><b>যোগাযোগ</b><a href="mailto:ahmad15earn@gmail.com">ahmad15earn@gmail.com</a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">X / Twitter</a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener">Facebook</a></div>
+</div>
+<div class="fbar"><span>© 2026 KothaBoli · সব অধিকার সংরক্ষিত</span><span>তৈরি করেছেন <a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">@ahmadrofitw</a></span></div></footer>
 
 <div class="mo" id="mo" aria-hidden="true"><div class="mb" id="mb" role="dialog" aria-modal="true">
 <button class="mx" id="mx" aria-label="বন্ধ করুন"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -286,7 +301,6 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <div class="err" id="er"></div><button class="glass" type="submit" id="sb">ডাউনলোড শুরু করুন</button>
 <p class="fine">আপনার ইমেইল শুধু ডেভেলপারের কাছে যাবে, সাপোর্ট ও আপডেটের জন্য।</p></form>
 <div class="ok"><h3>ধন্যবাদ</h3><p>ডাউনলোড শুরু হয়েছে। না হলে <a id="rl" href="#" style="color:var(--blue)">এখানে চাপুন</a>।</p><p class="fine" id="intelp" hidden>Intel Mac ব্যবহার করছেন? <a id="rlint" href="#" style="color:var(--blue)">Intel ভার্সন এখানে</a> · Apple Silicon ভার্সনও একই জায়গায়।</p></div></div></div>
-<button class="fmsg" id="fmsg" aria-label="মেসেজ পাঠান"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5c-1.4 0-2.8-.3-4-1L3 20l1.2-4.3A8.5 8.5 0 1121 11.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></button>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 // reveal
@@ -342,7 +356,6 @@ const dv=document.getElementById("tour");
 new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){dv.play().catch(()=>{})}else if(!dv.ended){dv.pause()}}),{threshold:.5}).observe(dv);
 // message box on the page -> developer's Telegram (same chat as download notes)
 const mfcard=$("#mf").closest(".mcard"),msgt=$("#msgt"),mer=$("#mer"),msb=$("#msb");
-$("#fmsg").onclick=()=>{$("#message").scrollIntoView({behavior:"smooth"});setTimeout(()=>msgt.focus(),600)};
 addEventListener("keydown",e=>{if(e.key=="Escape")closeM()});
 $("#mf").addEventListener("submit",async e=>{e.preventDefault();const v=msgt.value.trim(),em=$("#mem").value.trim();
 if(v.length<2){mer.textContent="কিছু লিখুন।";return}
