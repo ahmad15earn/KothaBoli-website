@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KothaBoli (কথা বলি) — বাংলা ও ইংরেজি, শুধু কণ্ঠে টাইপ করুন</title>
-<meta name="description" content="Windows 10 ও 11-এর জন্য ফ্রি ও ওপেন সোর্স ভয়েস টাইপিং। বাংলা আর ইংরেজি একই বাক্যে।">
+<meta name="description" content="Windows 10/11 এবং Mac-এর জন্য ফ্রি ও ওপেন সোর্স ভয়েস টাইপিং। বাংলা আর ইংরেজি একই বাক্যে।">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@ p.lead{font-size:clamp(15px,1.5vw,18px);color:var(--mute);max-width:520px;margin
 section{position:relative;text-align:center}
 section.wrap{padding-block:100px}
 section.final{padding-block:100px 40px}
-img,.mq,nav,.key,.island,.shot,.ic,.tag,.chip{-webkit-user-select:none;user-select:none}
+img,.mq,nav,.shot,.ic,.tag,.chip{-webkit-user-select:none;user-select:none}
 img{-webkit-user-drag:none;pointer-events:none}
 .tag{display:block;font-size:13px;font-weight:600;color:var(--blue);margin-bottom:12px}
 /* liquid glass button */
@@ -67,19 +67,22 @@ nav .glass{padding:8px 16px;font-size:13px}
 /* scroll-filled paragraph */
 .fill{font-size:clamp(20px,2.8vw,30px);font-weight:600;letter-spacing:-.015em;line-height:1.45;max-width:760px;margin:0 auto;text-align:left}
 .fill span{color:rgba(11,27,58,.14);transition:color .3s}.fill span.on{color:var(--ink)}
-/* demo */
-.demo{max-width:640px;margin:40px auto 0;border-radius:28px;padding:32px 26px 28px;background:var(--card);backdrop-filter:blur(20px);box-shadow:0 30px 70px -30px rgba(10,60,255,.35),inset 0 0 0 1px #fff}
-.island{margin:0 auto 26px;width:150px;height:36px;border-radius:99px;background:#0b1b3a;display:flex;align-items:center;justify-content:center;gap:4px;transition:width .6s var(--ease),height .6s var(--ease);color:#fff;font-size:13px}
-.island.on{width:260px;height:48px}
-.island i{display:block;width:4px;height:4px;border-radius:4px;background:#7ba7ff;opacity:.6}
-.island.on i{opacity:1;animation:wv .8s ease-in-out infinite}
-@keyframes wv{50%{height:24px}}
-.island i:nth-child(2n){animation-delay:.15s}.island i:nth-child(3n){animation-delay:.3s}.island i:nth-child(5n){animation-delay:.45s}
-.out{min-height:80px;font-size:17px;font-weight:500;color:var(--ink);padding:16px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);text-align:left}
-.keys{display:flex;gap:12px;justify-content:center;margin-top:26px}
-.key{padding:10px 22px;border-radius:12px;font-size:14px;font-weight:600;background:linear-gradient(#fff,#e7eeff);box-shadow:0 5px 0 #b9c9f5,0 10px 18px rgba(10,60,255,.15);cursor:pointer;user-select:none;transition:transform .08s,box-shadow .08s}
-.key.dn{transform:translateY(5px);box-shadow:0 0 0 #b9c9f5,0 3px 8px rgba(10,60,255,.2);color:var(--blue)}
-.hint{margin-top:18px;font-size:14px;color:var(--mute)}
+/* platform how-to cards (Windows vs Mac) */
+.plat{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:920px;margin:44px auto 0;text-align:left}
+@media(max-width:760px){.plat{grid-template-columns:1fr}}
+.pcard{border-radius:24px;background:var(--card);backdrop-filter:blur(16px);box-shadow:0 24px 60px -30px rgba(10,60,255,.4),inset 0 0 0 1px #fff;overflow:hidden;display:flex;flex-direction:column}
+.pcard>img{display:block;width:100%}
+.pbody{padding:20px 22px 22px;display:flex;gap:11px;flex-direction:column}
+.pname{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:700}
+.pname svg{width:17px;height:17px;fill:currentColor;color:var(--blue)}
+.kchip{display:inline-block;padding:3px 12px;border-radius:10px;font-size:13px;font-weight:700;color:var(--blue);background:#fff;box-shadow:inset 0 0 0 1.5px var(--line),0 2px 6px rgba(10,60,255,.08);margin-right:8px;white-space:nowrap}
+.pkey{display:flex;align-items:center;font-size:14.5px;color:var(--mute);line-height:1.5}
+.pnote{margin-top:6px;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:13.5px;color:var(--mute);line-height:1.6}
+.pnote b{color:var(--ink)}
+/* floating message button */
+.fmsg{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;background:linear-gradient(180deg,#5a96ff,#0a3cff);box-shadow:0 14px 30px -10px rgba(10,60,255,.55),inset 0 0 0 1px rgba(255,255,255,.25);transition:transform .3s var(--ease)}
+.fmsg:hover{transform:translateY(-2px) scale(1.04)}
+.fmsg svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* swap words */
 .swap{text-align:center;font-size:clamp(20px,2.8vw,30px);font-weight:600;min-height:2.6em;max-width:760px;margin:0 auto}
 .chip{display:inline-block;padding:2px 12px;border-radius:12px;margin:3px;transition:all .6s var(--ease)}
@@ -140,7 +143,8 @@ footer{padding:32px 0 48px;color:var(--mute);font-size:13px}
 .soc a:hover{transform:translateY(-2px);color:var(--blue)}
 .soc svg,.glass svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{color:var(--blue)}
-.vid{max-width:940px;margin:44px auto 0;border-radius:20px;overflow:hidden;background:#0b1b3a;box-shadow:0 30px 60px -28px rgba(10,40,120,.4),0 0 0 1px rgba(10,60,255,.08)}
+.vid{max-width:940px;margin:14px auto 0;border-radius:20px;overflow:hidden;background:#0b1b3a;box-shadow:0 30px 60px -28px rgba(10,40,120,.4),0 0 0 1px rgba(10,60,255,.08)}
+.vtitle{margin:40px auto 0;font-size:18px;font-weight:600}
 .vid video{display:block;width:100%;height:auto;aspect-ratio:16/9}
 .vnote{margin-top:14px;font-size:13px;color:var(--mute)}
 .soon{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:6px 14px;border-radius:99px;font-size:13px;font-weight:500;color:var(--mute);background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px var(--line)}
@@ -155,6 +159,8 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 .mb img{width:48px;border-radius:13px;margin-bottom:14px}.mb h3{font-size:20px;font-weight:700}.mb p{color:var(--mute);font-size:14px;margin-top:6px}
 .mb input{width:100%;margin-top:20px;padding:14px 16px;border-radius:14px;border:0;font:500 16px Inter,"Hind Siliguri";background:#fff;box-shadow:inset 0 0 0 1px var(--line);outline:none;transition:box-shadow .2s}
 .mb input:focus{box-shadow:inset 0 0 0 2px var(--blue)}
+.mb textarea{width:100%;margin-top:20px;padding:14px 16px;border-radius:14px;border:0;font:500 15px/1.6 Inter,"Hind Siliguri";background:#fff;box-shadow:inset 0 0 0 1px var(--line);outline:none;resize:vertical;min-height:110px}
+.mb textarea:focus{box-shadow:inset 0 0 0 2px var(--blue)}
 .mb .glass{width:100%;justify-content:center;margin-top:14px}
 .mb .fine{font-size:12px;margin-top:12px}.mb .err{color:#c93a5e;font-size:13px;margin-top:10px;min-height:1em}
 .mx{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(10,60,255,.07);color:var(--ink);cursor:pointer;display:grid;place-items:center}
@@ -165,7 +171,7 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 </head>
 <body>
 <div id="bar"></div>
-<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#demo">ট্রাই করুন</a><a class="l" href="#features">ফিচার</a><a class="l" href="#faq">FAQ</a><a class="l" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a>
+<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#video">ভিডিও</a><a class="l" href="#howto">ব্যবহার</a><a class="l" href="#features">ফিচার</a><a class="l" href="#faq">FAQ</a><a class="l" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a>
 <a class="glass dl" href="#get">Download</a></nav>
 
 <header class="hero wrap" style="text-align:center">
@@ -174,7 +180,7 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <img class="logo" src="assets/logo.png" alt="KothaBoli logo">
 <h1>কথা বলুন।<br><span class="grad type" id="tw"></span><span class="caret"></span></h1>
 <p class="lead">বাংলা আর English একই বাক্যে। ফ্রি ও ওপেন সোর্স।</p>
-<div class="cta"><a class="glass dl" href="#get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>ডাউনলোড</a><a class="glass dl" data-plat="mac" href="#get"><svg viewBox="0 0 24 24" fill="currentColor" class="apple"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.13.41-2.35 1.05-3.11z"/></svg>Mac-এর জন্য ডাউনলোড</a><a class="glass light" href="#demo">ডেমো দেখুন</a></div>
+<div class="cta"><a class="glass dl" href="#get"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 5.7 10 4.6v6.6H2.5V5.7ZM11 4.4l10.5-1.5v8.3H11V4.4ZM2.5 12.8H10v6.6l-7.5-1.1v-5.5ZM11 12.8h10.5v8.3L11 19.6v-6.8Z"/></svg>Windows-এর জন্য ডাউনলোড</a><a class="glass dl" data-plat="mac" href="#get"><svg viewBox="0 0 24 24" fill="currentColor" class="apple"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.13.41-2.35 1.05-3.11z"/></svg>Mac-এর জন্য ডাউনলোড</a><a class="glass light" href="#video">ভিডিও দেখুন</a></div>
 <p class="meta">Windows 10/11 এবং Mac (Apple Silicon ও Intel) · সম্পূর্ণ ফ্রি</p>
 <p class="count" id="cnt" hidden><b id="cn">0</b> জন ডাউনলোড করেছেন</p>
 <div class="shot"><div class="win" id="win"><img src="assets/app.webp" alt="KothaBoli app"></div></div>
@@ -185,12 +191,7 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <section class="wrap"><span class="tag rv">KothaBoli</span>
 <p class="fill" id="fill">শুধু কথা বলুন। বাংলা, English, বাংলিশ, যেভাবে মুখে আসে। মোড বদলানোর দরকার নেই।</p></section>
 
-<section id="demo" class="wrap"><span class="tag rv">লাইভ ডেমো</span><h2 class="rv">নিজে ট্রাই করুন</h2>
-<p class="lead rv">Ctrl+Alt চেপে ধরে ছাড়ুন। এটা শুধু ডেমো।</p>
-<div class="demo rv"><div class="island" id="isl"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><small id="il" style="margin:0 8px;display:none">Listening…</small></div>
-<div class="out" id="out">এখানে আপনার লেখা আসবে…</div>
-<div class="keys"><div class="key" id="k1">Ctrl</div><div class="key" id="k2">Alt</div></div>
-</div></section>
+
 
 <section class="wrap"><span class="tag rv">বাংলিশ</span><h2 class="rv">একই বাক্যে দুই ভাষা</h2>
 <p class="lead rv">যেমন বলবেন, তেমনই টাইপ হবে।</p>
@@ -217,9 +218,23 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <div class="step"><div class="n grad">3</div><h3>ছাড়ুন, লেখা তৈরি</h3><p>যেখানে কার্সর, সেখানেই টেক্সট বসে যায়।</p></div></div>
 <div class="dots"><i class="on"></i><i></i><i></i></div></div></section>
 
-<section class="wrap"><span class="tag rv">শর্টকাট</span><h2 class="rv">শর্টকাট</h2>
-<p class="lead rv">Alt+1, Alt+2 আর Alt+L। সেটিংসে বদলানো যায়।</p>
-<div class="sc rv"><img src="assets/shortcuts.webp" alt="Shortcuts" loading="lazy"></div></section>
+<section class="wrap" id="howto"><span class="tag rv">ব্যবহার নির্দেশনা</span><h2 class="rv">Windows আর Mac-এ যেভাবে চলে</h2>
+<p class="lead rv">দুই প্ল্যাটফর্মেই একই অভিজ্ঞতা — শুধু শর্টকাট প্ল্যাটফর্ম অনুযায়ী।</p>
+<div class="plat">
+<div class="pcard rv"><img src="assets/app-win.png" alt="Windows-এ KothaBoli">
+<div class="pbody"><div class="pname"><svg viewBox="0 0 24 24"><path d="M2.5 5.7 10 4.6v6.6H2.5V5.7ZM11 4.4l10.5-1.5v8.3H11V4.4ZM2.5 12.8H10v6.6l-7.5-1.1v-5.5ZM11 12.8h10.5v8.3L11 19.6v-6.8Z"/></svg>Windows</div>
+<div class="pkey"><span class="kchip">Ctrl + Alt</span>চেপে ধরে কথা বলুন — ছাড়লেই টাইপ হয়ে যাবে</div>
+<div class="pkey"><span class="kchip">Alt + 1</span>নির্বাচিত লেখা ঝকঝকে করুন</div>
+<div class="pkey"><span class="kchip">Alt + 2</span>পুরো লেখা একসাথে পরিষ্কার</div>
+<div class="pkey"><span class="kchip">Alt + L</span>ভুল ঠিক করে শিখিয়ে দিন</div></div></div>
+<div class="pcard rv d1"><img src="assets/app-mac.png" alt="Mac-এ KothaBoli">
+<div class="pbody"><div class="pname"><svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.13.41-2.35 1.05-3.11z"/></svg>Mac</div>
+<div class="pkey"><span class="kchip">⌃ + ⌥</span>চেপে ধরে কথা বলুন — ছাড়লেই টাইপ হয়ে যাবে</div>
+<div class="pkey"><span class="kchip">⌥ + 1</span>নির্বাচিত লেখা ঝকঝকে করুন</div>
+<div class="pkey"><span class="kchip">⌥ + 2</span>পুরো লেখা একসাথে পরিষ্কার</div>
+<div class="pkey"><span class="kchip">⌥ + L</span>ভুল ঠিক করে শিখিয়ে দিন</div>
+<div class="pnote"><b>প্রথমবার:</b> .dmg খুলে KothaBoli-কে Applications-এ টানুন → ডান-ক্লিক → <b>Open</b> → System Settings → Privacy &amp; Security → Accessibility-তে চালু করুন।</div></div></div>
+</div></section>
 
 <section class="wrap"><h2 class="rv">এক নজরে</h2>
 <div class="stats"><div class="rv"><b class="grad" data-n="2">0</b><span>ভাষা, একই বাক্যে</span></div><div class="rv d1"><b class="grad" data-n="100" data-s="%">0</b><span>ফ্রি ও ওপেন সোর্স</span></div><div class="rv d2"><b class="grad" data-n="0">0</b><span>সার্ভারে যাওয়া কথা (অফলাইনে)</span></div></div></section>
@@ -239,9 +254,12 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <div class="two"><div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div><h3>GitHub-এ Star দিন</h3><p>KothaBoli ওপেন সোর্স। ভালো লাগলে একটা Star দিয়ে পাশে থাকুন।</p><a class="glass light" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="i"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>Star দিন</a></div>
 <div class="card rv d1"><div class="ic"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><h3>সমস্যা হচ্ছে?</h3><p>ইমেইলে জানান, ঠিক করার চেষ্টা করব।</p><a class="glass light" href="mailto:ahmad15earn@gmail.com?subject=KothaBoli" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="i"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>ahmad15earn@gmail.com</a></div></div></section>
 <section class="final wrap"><div class="box rv"><img src="assets/logo.png" alt="" style="width:72px;border-radius:20px;margin-bottom:20px"><h2>আজই শুরু করুন</h2><p>Windows 10/11 এবং Mac-এর জন্য ফ্রি।</p>
-<a class="glass light dl" href="#get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Windows-এর জন্য ডাউনলোড</a> <a class="glass light dl" data-plat="mac" href="#get"><svg viewBox="0 0 24 24" fill="currentColor" class="apple"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.13.41-2.35 1.05-3.11z"/></svg>Mac-এর জন্য ডাউনলোড</a><p class="count" id="cnt2" hidden><b></b> জন ডাউনলোড করেছেন</p></div></section>
-<section class="wrap" id="video"><span class="tag rv">ভিডিও</span><h2 class="rv">ডাউনলোডের পর যেভাবে ব্যবহার করবেন</h2>
+<a class="glass light dl" href="#get"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 5.7 10 4.6v6.6H2.5V5.7ZM11 4.4l10.5-1.5v8.3H11V4.4ZM2.5 12.8H10v6.6l-7.5-1.1v-5.5ZM11 12.8h10.5v8.3L11 19.6v-6.8Z"/></svg>Windows-এর জন্য ডাউনলোড</a> <a class="glass light dl" data-plat="mac" href="#get"><svg viewBox="0 0 24 24" fill="currentColor" class="apple"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.13.41-2.35 1.05-3.11z"/></svg>Mac-এর জন্য ডাউনলোড</a><p class="count" id="cnt2" hidden><b></b> জন ডাউনলোড করেছেন</p></div></section>
+<section class="wrap" id="video"><span class="tag rv">ভিডিও</span><h2 class="rv">ভিডিওতে দেখুন</h2>
+<h3 class="vtitle rv">ডাউনলোডের পর যেভাবে ব্যবহার করবেন</h3>
 <div class="vid rv"><video id="tour" src="assets/demo.mp4" poster="assets/demo-poster.jpg" muted playsinline controls preload="metadata"></video></div>
+<h3 class="vtitle rv">🎵 KothaBoli গান</h3>
+<div class="vid rv"><video id="song" src="assets/song.mp4" poster="assets/song-poster.jpg" playsinline controls preload="metadata"></video></div>
 <p class="vnote rv">সাউন্ড চালু করতে ভিডিওর ভলিউম বাটন চাপুন।</p></section>
 <footer class="wrap" style="text-align:center"><div class="soc"><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" ><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" ><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" ><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="mailto:ahmad15earn@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>তৈরি করেছেন <a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">@ahmadrofitw</a> · © 2026 KothaBoli</footer>
 
@@ -252,6 +270,14 @@ footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{co
 <div class="err" id="er"></div><button class="glass" type="submit" id="sb">ডাউনলোড শুরু করুন</button>
 <p class="fine">আপনার ইমেইল শুধু ডেভেলপারের কাছে যাবে, সাপোর্ট ও আপডেটের জন্য।</p></form>
 <div class="ok"><h3>ধন্যবাদ</h3><p>ডাউনলোড শুরু হয়েছে। না হলে <a id="rl" href="#" style="color:var(--blue)">এখানে চাপুন</a>।</p><p class="fine" id="intelp" hidden>Intel Mac ব্যবহার করছেন? <a id="rlint" href="#" style="color:var(--blue)">Intel ভার্সন এখানে</a> · Apple Silicon ভার্সনও একই জায়গায়।</p></div></div></div>
+<div class="mo" id="mmo" aria-hidden="true"><div class="mb" id="mmb" role="dialog" aria-modal="true">
+<button class="mx" id="mmx" aria-label="বন্ধ করুন"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<img src="assets/logo.png" alt=""><h3>মেসেজ পাঠান</h3><p>ভালো-মন্দ যা বলতে চান, লিখে পাঠান — সরাসরি ডেভেলপারের কাছে পৌঁছে যাবে।</p>
+<form id="mf" novalidate><textarea id="msgt" rows="4" maxlength="800" placeholder="আপনার মেসেজ লিখুন…" required></textarea>
+<div class="err" id="mer"></div><button class="glass" type="submit" id="msb">পাঠিয়ে দিন</button>
+<p class="fine">মেসেজটা শুধু ডেভেলপারের Telegram-এ যাবে, কোথাও জমা থাকে না।</p></form>
+<div class="ok"><h3>পাঠানো হয়েছে</h3><p>ধন্যবাদ! মেসেজটা ডেভেলপারের কাছে পৌঁছে গেছে।</p></div></div></div>
+<button class="fmsg" id="fmsg" aria-label="মেসেজ পাঠান"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5c-1.4 0-2.8-.3-4-1L3 20l1.2-4.3A8.5 8.5 0 1121 11.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></button>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 // reveal
@@ -277,14 +303,6 @@ const co=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const el
 const parts=[["আমার","bn"],["software","en"],["-টা","bn"],["update","en"],["করো","bn"],["কাল","bn"],["meeting","en"],["-এর","bn"],["agenda","en"],["পাঠিয়ে","bn"],["দাও","bn"]];
 const sw=$("#swap");sw.innerHTML=parts.map(([w,c],i)=>`<span class="chip ${c}" style="opacity:0;transform:translateY(20px) scale(.8)">${w}</span>`).join("");
 new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){o.disconnect();$$("#swap .chip").forEach((c,i)=>setTimeout(()=>{c.style.opacity=1;c.style.transform="none"},i*260))}},{threshold:.5}).observe(sw);
-// demo
-const phrases=["আমার software-টা update করো","Hey, কালকের meeting-এর agenda পাঠিয়ে দাও।","এই project-টা ready, আজই deploy করবো!"];let pi=0,tm;
-const out=$("#out"),isl=$("#isl"),il=$("#il"),k1=$("#k1"),k2=$("#k2");
-function down(){clearTimeout(tm);[k1,k2].forEach(k=>k.classList.add("dn"));isl.classList.add("on");il.style.display="block";out.textContent="…"}
-function up(){[k1,k2].forEach(k=>k.classList.remove("dn"));isl.classList.remove("on");il.style.display="none";const s=phrases[pi++%phrases.length];let i=0;out.textContent="";(function t(){out.textContent=s.slice(0,++i);if(i<s.length)tm=setTimeout(t,35)})()}
-[k1,k2].forEach(k=>{k.addEventListener("pointerdown",down);k.addEventListener("pointerup",up);k.addEventListener("pointerleave",e=>{if(k.classList.contains("dn"))up()})});
-let ctrl=0,alt=0,act=0;addEventListener("keydown",e=>{if(e.key=="Control")ctrl=1;if(e.key=="Alt"){alt=1;e.preventDefault()}if(ctrl&&alt&&!act){act=1;down()}});
-addEventListener("keyup",e=>{if(e.key=="Control")ctrl=0;if(e.key=="Alt")alt=0;if(act&&!(ctrl&&alt)){act=0;up()}});
 // download gate + counter
 const mo=$("#mo"),mb=$("#mb"),em=$("#em"),er=$("#er"),sb=$("#sb");
 // platform for the download API: win | mac-arm | mac-intel
@@ -313,6 +331,17 @@ catch(x){er.textContent="কিছু একটা সমস্যা হয়�
 // video autoplay when visible
 const dv=document.getElementById("tour");
 new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){dv.play().catch(()=>{})}else if(!dv.ended){dv.pause()}}),{threshold:.5}).observe(dv);
+// message to the developer (same Telegram chat as download notes)
+const mmo=$("#mmo"),mmb=$("#mmb"),msgt=$("#msgt"),mer=$("#mer"),msb=$("#msb");
+function openMsg(){mmb.classList.remove("done");mer.textContent="";mmo.classList.add("on");mmo.setAttribute("aria-hidden","false");setTimeout(()=>msgt.focus(),50)}
+function closeMsg(){mmo.classList.remove("on");mmo.setAttribute("aria-hidden","true")}
+$("#fmsg").onclick=openMsg;$("#mmx").onclick=closeMsg;mmo.addEventListener("click",e=>{if(e.target===mmo)closeMsg()});
+addEventListener("keydown",e=>{if(e.key=="Escape"){closeM();closeMsg()}});
+$("#mf").addEventListener("submit",async e=>{e.preventDefault();const v=msgt.value.trim();
+if(v.length<2){mer.textContent="কিছু লিখুন।";return}
+msb.disabled=true;mer.textContent="";
+try{const r=await fetch("/api/message",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:v})});const j=await r.json();if(!r.ok||!j.ok)throw 0;mmb.classList.add("done");msgt.value=""}
+catch(x){mer.textContent="পাঠানো গেল না, একটু পরে আবার চেষ্টা করুন।"}finally{msb.disabled=false}});
 </script>
 </body>
 </html>
