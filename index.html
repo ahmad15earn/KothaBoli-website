@@ -165,7 +165,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 .mb{position:relative;width:min(420px,100%);padding:34px 28px 26px;border-radius:28px;background:rgba(255,255,255,.92);text-align:center;box-shadow:0 40px 80px -30px rgba(10,40,120,.5),inset 0 0 0 1px #fff;animation:pop .5s var(--ease)}
 @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}}
 .mb img{width:48px;border-radius:13px;margin-bottom:14px}.mb h3{font-size:20px;font-weight:700}.mb p{color:var(--mute);font-size:14px;margin-top:6px}
-.mb input,.mcard input{width:100%;margin-top:20px;padding:14px 16px;border-radius:14px;border:0;font:500 16px Inter,"Hind Siliguri";background:#fff;box-shadow:inset 0 0 0 1px var(--line);outline:none;transition:box-shadow .2s}
+.mb input:not([type=checkbox]),.mcard input:not([type=checkbox]){width:100%;margin-top:20px;padding:14px 16px;border-radius:14px;border:0;font:500 16px Inter,"Hind Siliguri";background:#fff;box-shadow:inset 0 0 0 1px var(--line);outline:none;transition:box-shadow .2s}
 .mb input:focus,.mcard input:focus{box-shadow:inset 0 0 0 2px var(--blue)}
 .mb textarea,.mtext{width:100%;margin-top:20px;padding:14px 16px;border-radius:14px;border:0;font:500 15px/1.6 Inter,"Hind Siliguri";background:#fff;box-shadow:inset 0 0 0 1px var(--line);outline:none;resize:vertical;min-height:110px}
 .mb textarea:focus,.mtext:focus{box-shadow:inset 0 0 0 2px var(--blue)}
@@ -177,6 +177,28 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 .mcard .err{color:#c93a5e;font-size:13px;margin-top:10px;min-height:1em}
 .mcard .ok{display:none;text-align:center}.mcard.done form{display:none}.mcard.done .ok{display:block}
 .mcard .ok p{color:var(--mute);margin-top:8px}
+/* community video upload + featured grid */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:940px;margin:34px auto 0;text-align:left}
+.ccard{border-radius:20px;background:var(--card);backdrop-filter:blur(16px);box-shadow:0 24px 50px -30px rgba(10,60,255,.35),inset 0 0 0 1px #fff;overflow:hidden}
+.ccard video{display:block;width:100%;background:#0b1b3a}
+.ccard p{font-weight:600;padding:14px 16px 0}
+.ccard>span{display:block;padding:2px 16px 16px;color:var(--mute);font-size:13px}
+.cempty{margin-top:26px;color:var(--mute)}
+.vdz{margin-top:18px;padding:26px 18px;border-radius:16px;border:2px dashed var(--line);background:#fff;cursor:pointer;color:var(--mute);font-size:14.5px;line-height:1.7;transition:border-color .2s,background .2s;text-align:center}
+.vdz b{color:var(--blue)}
+.vdz small{font-size:12px}
+.vdz:hover,.vdz.on{border-color:var(--blue);background:#f4f8ff}
+.vinfo{margin-top:12px;font-size:13.5px;font-weight:600;min-height:1.3em}
+.pbar{height:8px;border-radius:99px;background:#e8eefc;overflow:hidden;margin-top:10px;display:none}
+.pbar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#5a96ff,#0a3cff);transition:width .3s}
+.pbar.on{display:block}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.cats label{cursor:pointer}
+.cats input{position:absolute;opacity:0;pointer-events:none}
+.cats span{display:inline-block;padding:7px 16px;border-radius:99px;font-size:13.5px;font-weight:600;color:var(--mute);background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);transition:all .2s}
+.cats input:checked+span{color:#fff;background:linear-gradient(180deg,#5a96ff,#0a3cff);box-shadow:0 6px 14px -6px rgba(10,60,255,.5)}
+.cons{display:flex;gap:9px;align-items:flex-start;margin-top:14px;font-size:13.5px;color:var(--mute);text-align:left;cursor:pointer}
+.cons input{width:auto!important;margin-top:3px!important;accent-color:var(--blue)}
 .mx{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(10,60,255,.07);color:var(--ink);cursor:pointer;display:grid;place-items:center}
 .mx svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .mb .ok{display:none}.mb.done form{display:none}.mb.done .ok{display:block}
@@ -185,7 +207,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 </head>
 <body>
 <div id="bar"></div>
-<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#video">ভিডিও</a><a class="l" href="#howto">ব্যবহার</a><a class="l" href="#features">ফিচার</a><a class="l" href="#faq">FAQ</a><a class="l" href="#message">মেসেজ</a><a class="l" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a>
+<nav><b><img src="assets/logo.png" alt="">KothaBoli</b><a class="l" href="#video">ভিডিও</a><a class="l" href="#howto">ব্যবহার</a><a class="l" href="#features">ফিচার</a><a class="l" href="#community">কমিউনিটি</a><a class="l" href="#faq">FAQ</a><a class="l" href="#message">মেসেজ</a><a class="l" href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a>
 <a class="glass dl" href="#get">Download</a></nav>
 
 <header class="hero wrap" style="text-align:center">
@@ -276,6 +298,28 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 <div class="vid rv"><video id="song" src="assets/song.mp4" poster="assets/song-poster.jpg" playsinline controls preload="metadata"></video></div>
 <p class="vnote rv">সাউন্ড চালু করতে ভিডিওর ভলিউম বাটন চাপুন।</p></section>
 
+<section id="community"><span class="tag rv">কমিউনিটি</span><h2 class="rv">আপনার ভিডিও পাঠান</h2>
+<p class="lead rv">KothaBoli নিয়ে ছোট্ট একটা ভিডিও বানিয়ে পাঠান — কী সমস্যায় কাজে লেগেছে, আপনার অভিজ্ঞতা, কিংবা বন্ধুদের জন্য প্রচার। ভিডিও সরাসরি ডেভেলপারের কাছে পৌঁছে যাবে; বাছাই হলে সোশ্যাল পেজে শেয়ার ও নিচে এখানেই দেখানো হবে!</p>
+<div class="mcard rv"><form id="vf" novalidate>
+<div class="vdz" id="vdz" role="button" tabindex="0" aria-label="ভিডিও বাছাই করুন"><b>ভিডিও বাছাই করুন</b><br><small>বা এখানে টেনে ছাড়ুন · সর্বোচ্চ ৬০ সেকেন্ড · বড় ভিডিও আপনার ব্রাউজারেই ছোট হয়ে যাবে</small></div>
+<input id="vfile" type="file" accept="video/*" hidden>
+<div class="vinfo" id="vinfo"></div>
+<div class="pbar" id="pbar"><i id="pfill"></i></div>
+<div class="cats">
+<label><input type="radio" name="vcat" value="experience" checked><span>আমার অভিজ্ঞতা</span></label>
+<label><input type="radio" name="vcat" value="problem"><span>যে সমস্যায় কাজে লেগেছে</span></label>
+<label><input type="radio" name="vcat" value="promo"><span>প্রচারের ভিডিও</span></label>
+</div>
+<input id="vn" maxlength="40" autocomplete="name" placeholder="আপনার নাম (ভিডিওর সাথে দেখানোর জন্য)">
+<input id="ve" type="email" inputmode="email" autocomplete="email" placeholder="ইমেইল (ঐচ্ছিক)">
+<input id="vl" type="url" inputmode="url" placeholder="বড় ভিডিওর লিংক — YouTube/TikTok/Facebook (ঐচ্ছিক)">
+<label class="cons"><input type="checkbox" id="vc"><span>শেয়ার করতে রাজি — আমাদের পেজে ও এই ওয়েবসাইটে আপনার ভিডিও দেখানো হতে পারে।</span></label>
+<div class="err" id="ver"></div><button class="glass" type="submit" id="vsb">ভিডিও পাঠান</button>
+<p class="fine">ভিডিওটা সরাসরি ডেভেলপারের Telegram-এ যাবে, সার্ভারে কোথাও জমা থাকে না।</p></form>
+<div class="ok"><h3>পাঠানো হয়েছে! 🎬</h3><p>ধন্যবাদ! ভিডিওটা ডেভেলপারের কাছে পৌঁছে গেছে। বাছাই হলে এখানেই দেখতে পাবেন।</p></div></div>
+<div class="cgrid" id="cgrid"></div>
+<p class="cempty" id="cempty">এখনো কোনো ফিচার্ড ভিডিও নেই — আপনিই প্রথম হতে পারেন!</p></section>
+
 <section id="message"><span class="tag rv">মেসেজ</span><h2 class="rv">ডেভেলপারকে সরাসরি মেসেজ</h2>
 <p class="lead rv">ভালো-মন্দ যা বলতে চান — নিচের বক্সে লিখে পাঠিয়ে দিন, ব্যস। চাইলে ইমেইল দিন, উত্তর পাবেন; না দিলেও মেসেজ পৌঁছে যাবে।</p>
 <div class="mcard rv"><form id="mf" novalidate>
@@ -289,7 +333,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 <div class="fcol fbrand"><b class="flogo"><img src="assets/logo.png" alt="">KothaBoli</b><p>বাংলা ও ইংরেজি — শুধু কথা বলুন, লেখা হয়ে যাবে। Windows 10/11 এবং Mac-এর জন্য ফ্রি ও ওপেন সোর্স ভয়েস টাইপিং।</p>
 <div class="fsoc"><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" ><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" ><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" ><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="mailto:ahmad15earn@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div></div>
 <div class="fcol"><b>পণ্য</b><a href="#get">ডাউনলোড</a><a href="#features">ফিচার</a><a href="#howto">ব্যবহার নির্দেশনা</a><a href="#video">ভিডিও</a></div>
-<div class="fcol"><b>সাহায্য</b><a href="#faq">প্রশ্ন-উত্তর</a><a href="#message">মেসেজ পাঠান</a><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a></div>
+<div class="fcol"><b>সাহায্য</b><a href="#faq">প্রশ্ন-উত্তর</a><a href="#community">আপনার ভিডিও</a><a href="#message">মেসেজ পাঠান</a><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a></div>
 <div class="fcol"><b>যোগাযোগ</b><a href="mailto:ahmad15earn@gmail.com">ahmad15earn@gmail.com</a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">X / Twitter</a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener">Facebook</a></div>
 </div>
 <div class="fbar"><span>© 2026 KothaBoli · সব অধিকার সংরক্ষিত</span><span>তৈরি করেছেন <a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">@ahmadrofitw</a></span></div></footer>
@@ -362,6 +406,113 @@ if(v.length<2){mer.textContent="কিছু লিখুন।";return}
 msb.disabled=true;mer.textContent="";
 try{const r=await fetch("/api/message",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:v,email:em||null})});const j=await r.json();if(!r.ok||!j.ok)throw 0;mfcard.classList.add("done");msgt.value="";$("#mem").value=""}
 catch(x){mer.textContent="পাঠানো গেল না, একটু পরে আবার চেষ্টা করুন।"}finally{msb.disabled=false}});
+
+// ---- community video campaign: upload -> developer's Telegram ----
+const vcard=$("#vf").closest(".mcard"),vdz=$("#vdz"),vfile=$("#vfile"),vinfo=$("#vinfo"),
+pbar=$("#pbar"),pfill=$("#pfill"),ver=$("#ver"),vsb=$("#vsb"),
+vcatSel=()=>$("#vf input[name=vcat]:checked").value;
+let vpickf=null;
+function vpick(f){ver.textContent="";vinfo.textContent="";pbar.classList.remove("on");vpickf=null;
+if(!f)return;
+if(!/^video\//.test(f.type)&&!/\.(mp4|webm|mov|mkv|avi)$/i.test(f.name)){ver.textContent="ভিডিও ফাইল দিন (mp4/webm/mov)।";return}
+if(f.size>400*1048576){ver.textContent="ভিডিওটা খুব বড় (৪০০ MB+) — ছোট করে দিন বা নিচে লিংক দিন।";return}
+vpickf=f;vinfo.textContent="✅ "+f.name+" ("+(f.size/1048576).toFixed(1)+" MB)"}
+vdz.onclick=()=>vfile.click();
+vdz.onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();vfile.click()}};
+vfile.onchange=()=>vpick(vfile.files[0]);
+addEventListener("dragover",e=>e.preventDefault());addEventListener("drop",e=>e.preventDefault());
+vdz.ondragover=e=>{e.preventDefault();vdz.classList.add("on")};
+vdz.ondragleave=()=>vdz.classList.remove("on");
+vdz.ondrop=e=>{e.preventDefault();vdz.classList.remove("on");vpick(e.dataTransfer.files[0])};
+// Client-side compression for big clips (Vercel bodies cap ~4.5 MB):
+// re-encode ≤60s at 640px/24fps with canvas.captureStream + MediaRecorder.
+const V_MIMES=["video/mp4;codecs=avc1.42E01E,mp4a.40.2","video/mp4","video/webm;codecs=vp9,opus","video/webm;codecs=vp8,opus","video/webm"];
+const vMime=V_MIMES.find(m=>window.MediaRecorder&&MediaRecorder.isTypeSupported(m))||"";
+async function vCompress(f,kbps){
+const v=document.createElement("video");v.muted=true;v.playsInline=true;
+v.src=URL.createObjectURL(f);
+await new Promise((ok,bad)=>{v.onloadedmetadata=ok;v.onerror=()=>bad(new Error("meta"))});
+const dur=Math.min(v.duration||60,60);
+const W=Math.min(640,v.videoWidth||640),sc=v.videoWidth?W/v.videoWidth:1,
+H=Math.max(2,Math.round((v.videoHeight||360)*sc));
+const cv=document.createElement("canvas");cv.width=W;cv.height=H;
+const cx=cv.getContext("2d"),st=cv.captureStream(24);
+try{const actx=new (window.AudioContext||window.webkitAudioContext)();
+const dst=actx.createMediaStreamDestination();
+actx.createMediaElementSource(v).connect(dst);
+dst.stream.getAudioTracks().forEach(t=>st.addTrack(t))}catch(e){}
+const rec=new MediaRecorder(st,{mimeType:vMime,videoBitsPerSecond:kbps,audioBitsPerSecond:64000});
+const parts=[];rec.ondataavailable=e=>{if(e.data&&e.data.size)parts.push(e.data)};
+const stopped=new Promise(ok=>rec.onstop=ok);
+v.currentTime=0;rec.start(400);await v.play();
+await new Promise(ok=>{const t0=performance.now(),draw=()=>{
+if(v.ended||v.currentTime>=dur||performance.now()-t0>dur*1000+1500)return ok();
+try{cx.drawImage(v,0,0,W,H)}catch(e){}
+pfill.style.width=Math.min(99,v.currentTime/Math.max(dur,.1)*100)+"%";
+requestAnimationFrame(draw)};draw()});
+try{v.pause()}catch(e){}
+rec.stop();await stopped;
+const blob=new Blob(parts,{type:vMime.split(";")[0]});
+URL.revokeObjectURL(v.src);
+return blob;
+}
+$("#vf").addEventListener("submit",async e=>{
+e.preventDefault();
+const name=$("#vn").value.trim(),email=$("#ve").value.trim(),
+link=$("#vl").value.trim(),consent=$("#vc").checked,cat=vcatSel();
+if(!vpickf&&!link){ver.textContent="ভিডিও বাছাই করুন, অথবা বড় ভিডিওর লিংক দিন।";return}
+if(email&&!/^[^\s@]{1,64}@[^\s@]+\.[^\s@]{2,}$/.test(email)){ver.textContent="ইমেইলটা ঠিক নেই।";return}
+if(link&&!/^https?:\/\//i.test(link)){ver.textContent="লিংকটা http(s) দিয়ে শুরু হওয়া উচিত।";return}
+if(!vpickf&&!consent){ver.textContent="শেয়ার-অনুমতির বক্সে টিক দিন (না দিলে শুধু ডেভেলপার দেখবেন)।";return}
+vsb.disabled=true;ver.textContent="";pfill.style.width="0%";pbar.classList.add("on");
+try{
+if(vpickf){
+let blob=vpickf;
+if(!vMime)throw new Error("norec");
+if(blob.size>4.0*1048576){
+vinfo.textContent="বড় ভিডিও — আপনার ব্রাউজারেই ছোট করা হচ্ছে (৬০ সেকেন্ড পর্যন্ত)…";
+blob=await vCompress(blob,550000);
+if(blob.size>4.0*1048576)blob=await vCompress(vpickf,300000);
+if(blob.size>4.3*1048576){ver.textContent="ভিডিওটা এখনো বড় হয়ে যাচ্ছে — ৬০ সেকেন্ডের নিচে করে আবার দিন, অথবা লিংক দিন।";return}
+}
+vinfo.textContent="আপলোড হচ্ছে…";
+const d={cat,name,email:email||null,link:link||null,consent};
+const r=await fetch("/api/video?d="+encodeURIComponent(JSON.stringify(d)),
+{method:"POST",headers:{"Content-Type":"application/octet-stream"},body:blob});
+const j=await r.json();
+if(!r.ok||!j.ok)throw new Error(j&&j.error||"send");
+}else{ // link-only submission rides through the message endpoint
+const msg="🎬 ভিডিও-লিংক সাবমিশন | ধরন: "+cat+" | নাম: "+(name||"—")+
+(email?" | ইমেইল: "+email:"")+" | লিংক: "+link+
+(consent?" | শেয়ার: হ্যাঁ":" | শেয়ার: না");
+const r=await fetch("/api/message",{method:"POST",headers:{"Content-Type":"application/json"},
+body:JSON.stringify({message:msg,email:email||null})});
+const j=await r.json();
+if(!r.ok||!j.ok)throw 0;
+}
+pfill.style.width="100%";pbar.classList.remove("on");vcard.classList.add("done");
+vfile.value="";vpickf=null;vinfo.textContent="";
+}catch(x){
+pbar.classList.remove("on");
+const m={too_large:"ভিডিওটা খুব বড়।",bad_file:"ফরম্যাট চিনতে পারিনি — mp4/webm দিন।",
+no_file:"ভিডিও ফাইল পাইনি।",rate_limited:"ঘণ্টায় সর্বোচ্চ ৩টা ভিডিও — একটু পরে আবার চেষ্টা করুন।",
+invalid_email:"ইমেইলটা ঠিক নেই।",invalid_link:"লিংকটা ঠিক নেই।",
+norec:"এই ব্রাউজারে বড় ভিডিও ছোট করা যায় না — ৪ MB-র নিচের ভিডিও দিন বা লিংক দিন।"}[x.message];
+ver.textContent=m||"পাঠানো গেল না — একটু পরে আবার চেষ্টা করুন।";
+}finally{vsb.disabled=false}});
+// featured grid: maintain videos.json + assets/community/ to feature a clip
+(async()=>{try{
+const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const j=await (await fetch("/videos.json?v="+Date.now())).json();
+if(j&&Array.isArray(j.videos)&&j.videos.length){
+$("#cempty").style.display="none";
+$("#cgrid").innerHTML=j.videos.map(v=>{
+const src=esc(v.src||("assets/community/"+v.file));
+const poster=v.poster?' poster="'+esc(v.poster)+'"':"";
+return '<div class="ccard"><video src="'+src+'"'+poster+' controls playsinline preload="metadata"></video><p>'+esc(v.title)+'</p><span>'+esc(v.by)+(v.cat?" · "+esc(v.cat):"")+"</span></div>";
+}).join("");
+}
+}catch(e){}})();
 </script>
 </body>
 </html>
