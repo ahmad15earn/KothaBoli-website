@@ -187,6 +187,48 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 .ccard p{font-weight:600;padding:14px 16px 0}
 .ccard>span{display:block;padding:2px 16px 16px;color:var(--mute);font-size:13px}
 .cempty{margin-top:26px;color:var(--mute)}
+/* KothaNote — the sibling Android app (kept lower on the page) */
+#kothanote{scroll-margin-top:86px}
+.tag.coral{color:#ff5a3c}
+.kn-card{display:grid;grid-template-columns:1.02fr 1.3fr;gap:26px;align-items:center;margin-top:34px;padding:34px 30px;border-radius:32px;background:linear-gradient(155deg,#fff8f5,#fff 58%,#f4f8ff);box-shadow:0 40px 90px -55px rgba(255,90,60,.55),inset 0 0 0 1px rgba(255,90,60,.13);text-align:left;position:relative;overflow:hidden}
+.kn-card:before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:#ffd9cf;filter:blur(70px);opacity:.55;right:-90px;top:-110px;pointer-events:none}
+.kn-info{position:relative;z-index:1}
+.kn-head{display:flex;align-items:center;gap:12px}
+.kn-mark{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;background:linear-gradient(160deg,#ff7a5f,#ff4b28);box-shadow:0 10px 20px -10px rgba(255,75,40,.7)}
+.kn-mark svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.kn-head b{display:block;font-size:21px;letter-spacing:-.02em;line-height:1.2}
+.kn-head span{display:block;font-size:12px;color:var(--mute);font-weight:500;margin-top:2px}
+.kn-feats{list-style:none;margin:18px 0 22px;display:grid;gap:9px}
+.kn-feats li{display:flex;gap:9px;font-size:14px;color:#3c4a68;line-height:1.5}
+.kn-feats svg{width:17px;height:17px;flex:none;margin-top:3px;stroke:#ff5a3c;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.kn-cta{display:flex;gap:10px;flex-wrap:wrap}
+.kn-dl{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:15px;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;background:linear-gradient(180deg,#ff7a5f,#ff4b28);box-shadow:0 18px 36px -16px rgba(255,75,40,.65),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .25s var(--ease),box-shadow .25s}
+.kn-dl:hover{transform:translateY(-2px);box-shadow:0 24px 44px -18px rgba(255,75,40,.7)}
+.kn-dl svg{width:19px;height:19px;flex:none;fill:currentColor}
+.kn-dl small{display:block;font-size:11px;font-weight:500;opacity:.9;line-height:1.3}
+.kn-gh{display:inline-flex;align-items:center;gap:8px;padding:13px 18px;border-radius:15px;background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px;box-shadow:inset 0 0 0 1px rgba(11,27,58,.12),0 12px 26px -20px rgba(11,27,58,.45);transition:transform .25s var(--ease)}
+.kn-gh:hover{transform:translateY(-2px)}
+.kn-gh svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.kn-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.kn-badges span{font-size:11.5px;font-weight:500;color:#755a52;background:#fff;padding:5px 10px;border-radius:99px;box-shadow:inset 0 0 0 1px rgba(255,90,60,.18)}
+.kn-soon{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:12.5px;color:#8a655b}
+.kn-soon svg{width:14px;height:14px;stroke:#ff5a3c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.kn-shots{position:relative;display:flex;justify-content:center;align-items:flex-end;padding:6px 0 0}
+.kn-shot{display:block;flex:none;width:186px;height:auto;border-radius:26px;filter:drop-shadow(0 26px 38px rgba(11,27,58,.2))}
+.kn-shot.s1{transform:rotate(-7deg) translateY(18px);margin-right:-42px;z-index:1}
+.kn-shot.s2{width:202px;z-index:3}
+.kn-shot.s3{transform:rotate(7deg) translateY(18px);margin-left:-42px;z-index:2}
+.kn-warn{max-width:930px;margin:20px auto 0;padding:22px 24px;border-radius:22px;background:#fff;box-shadow:inset 0 0 0 1px rgba(255,90,60,.2),0 24px 60px -50px rgba(11,27,58,.5);text-align:left}
+.kn-warn h3{display:flex;align-items:center;gap:9px;font-size:16px}
+.kn-warn h3 svg{width:20px;height:20px;stroke:#ff5a3c;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.kn-warn p{font-size:13px;color:var(--mute);margin-top:7px}
+.kn-steps{list-style:none;counter-reset:kn;display:grid;gap:9px;margin:13px 0 0}
+.kn-steps li{counter-increment:kn;position:relative;padding-left:33px;font-size:13px;color:#3f4f70;line-height:1.55}
+.kn-steps li:before{content:counter(kn);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:#fff1ec;color:#d8421f;font-size:11.5px;font-weight:700;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,90,60,.25)}
+.kn-safe{margin-top:13px!important;padding:11px 13px;border-radius:13px;background:#f1fbf6;color:#146b45!important;font-size:12.5px!important;box-shadow:inset 0 0 0 1px #ccecdc;line-height:1.6}
+.kn-sha{display:inline-block;margin-top:10px;font-size:12px;color:var(--mute);text-decoration:underline;text-decoration-color:rgba(91,107,140,.35)}
+.kn-sha:hover{color:var(--blue)}
+@media(max-width:900px){.kn-card{grid-template-columns:1fr;padding:28px 20px}.kn-shots{margin-top:16px;justify-content:flex-start;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}.kn-shot{width:158px;scroll-snap-align:center}.kn-shot.s2{width:172px}.kn-shot.s1{margin-right:-34px}.kn-shot.s3{margin-left:-34px}}
 .vdz{margin-top:18px;padding:26px 18px;border-radius:16px;border:2px dashed var(--line);background:#fff;cursor:pointer;color:var(--mute);font-size:14.5px;line-height:1.7;transition:border-color .2s,background .2s;text-align:center}
 .vdz b{color:var(--blue)}
 .vdz small{font-size:12px}
@@ -302,6 +344,41 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 <div class="vid rv"><video id="song" src="assets/song.mp4" poster="assets/song-poster.jpg" playsinline controls preload="metadata"></video></div>
 <p class="vnote rv">সাউন্ড চালু করতে ভিডিওর ভলিউম বাটন চাপুন।</p></section>
 
+<section class="wrap" id="kothanote"><span class="tag coral rv">আরেকটি অ্যাপ · Android</span><h2 class="rv">মোবাইলে নোট? কথা বলেই লিখে ফেলুন</h2>
+<p class="lead rv">KothaNote — KothaBoli-পরিবারের নতুন Android অ্যাপ। হাতে ফোন, মুখে কথা; নোট তৈরি। ইন্টারনেট ছাড়াই, সবটা আপনার ফোনেই।</p>
+<div class="kn-card rv">
+<div class="kn-info">
+<div class="kn-head"><span class="kn-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></span><div><b>KothaNote</b><span>Android 7.0+ · সম্পূর্ণ অফলাইন</span></div></div>
+<ul class="kn-feats">
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>কথা বলুন — Whisper Tiny মডেল ফোনেই লেখা তৈরি করে, নেট লাগে না।</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>নোট, অডিও আর ক্যাটাগরি — সব ফোনের ভেতরেই; কোনো অ্যাকাউন্ট বা সার্ভার নেই।</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>বাংলা, English বা মিশ্র — যেমন বলে অভ্যস্ত, তেমনই লিখে রাখুন।</li>
+</ul>
+<div class="kn-cta">
+<a class="kn-dl" href="https://github.com/ahmad15earn/kothaNote/releases/latest/download/KothaNote-debug.apk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v9.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V3zM5 19h14v2H5z"/></svg><span>APK ডাউনলোড<small>Android 7.0+ · ১২৪ MB · লগইন লাগে না</small></span></a>
+<a class="kn-gh" href="https://github.com/ahmad15earn/kothaNote" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>GitHub-এ কোড দেখুন ও Star দিন</a>
+</div>
+<div class="kn-badges"><span>Whisper Tiny — অন-ডিভাইস</span><span>Play Store — শীঘ্রই</span><span>MIT ওপেন সোর্স</span></div>
+<div class="kn-soon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Play Store-এ এখনো আসেনি, শীঘ্রই আসছে। ততদিন GitHub Releases থেকেই ডাউনলোড করুন।</div>
+</div>
+<div class="kn-shots">
+<img class="kn-shot s1" src="assets/kothanote-home.webp" alt="KothaNote হোম স্ক্রিন — ভয়েস নোটের তালিকা" width="780" height="1688" loading="lazy">
+<img class="kn-shot s2" src="assets/kothanote-rec.webp" alt="KothaNote রেকর্ডিং শিট — কথা বললেই লেখা আসে" width="780" height="1688" loading="lazy">
+<img class="kn-shot s3" src="assets/kothanote-detail.webp" alt="KothaNote নোটের বিস্তারিত — লেখা, ক্যাটাগরি ও প্লেয়ার" width="780" height="1688" loading="lazy">
+</div>
+</div>
+<div class="kn-warn rv">
+<h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M12 8v4M12 15.5v.01"/></svg>ইনস্টলের সময় Play Protect সতর্কতা দিলে?</h3>
+<p>এটা স্বাভাবিক। Google Play-র বাইরে থেকে ইনস্টল করা অ্যাপে Play Protect এই সতর্কতা দেখায় — অ্যাপে ক্ষতিকর কিছু নেই। ভয় পাওয়ার দরকার নেই, নিচের ধাপগুলো দেখুন।</p>
+<ol class="kn-steps">
+<li>ডাউনলোড করা APK ফাইলে চাপুন। Chrome প্রথমবার হলে Settings → <b>Install unknown apps</b>-এ Chrome-কে অনুমতি দিন।</li>
+<li>Play Protect সতর্কতা এলে <b>More details</b> → <b>Install anyway</b> চাপুন। এতে ইনস্টল হয়ে যাবে।</li>
+<li>না চাইলে Settings → Security → <b>Scan apps with Play Protect</b> সাময়িকভাবে বন্ধ করে ইনস্টল করুন — <b>ইনস্টল শেষে আবার চালু করে দিন</b>।</li>
+</ol>
+<p class="kn-safe">✅ <b>নিশ্চিন্ত থাকুন:</b> KothaNote-এ INTERNET permission-ই নেই — কথা বা নোট কোথাও পাঠানোর সুযোগ নেই। পুরো কোড MIT লাইসেন্সে খোলা, GitHub-এ নিজেই যাচাই করতে পারেন।</p>
+<a class="kn-sha" href="https://github.com/ahmad15earn/kothaNote/releases/latest/download/KothaNote-debug.apk.sha256" target="_blank" rel="noopener">SHA-256 চেকসাম দেখুন</a>
+</div></section>
+
 <section id="community"><span class="tag rv">কমিউনিটি</span><h2 class="rv">আপনার ভিডিও পাঠান</h2>
 <p class="lead rv">KothaBoli নিয়ে ছোট্ট একটা ভিডিও বানিয়ে পাঠান — কী সমস্যায় কাজে লেগেছে, আপনার অভিজ্ঞতা, কিংবা বন্ধুদের জন্য প্রচার। ভিডিও সরাসরি ডেভেলপারের কাছে পৌঁছে যাবে; বাছাই হলে সোশ্যাল পেজে শেয়ার ও নিচে এখানেই দেখানো হবে!</p>
 <div class="mcard rv"><form id="vf" novalidate>
@@ -336,7 +413,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 <footer><div class="fwrap">
 <div class="fcol fbrand"><b class="flogo"><img src="assets/logo.png" alt="">KothaBoli</b><p>বাংলা ও ইংরেজি — শুধু কথা বলুন, লেখা হয়ে যাবে। Windows 10/11 এবং Mac-এর জন্য ফ্রি ও ওপেন সোর্স ভয়েস টাইপিং।</p>
 <div class="fsoc"><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" ><path d="M4 4l16 16M20 4L4 20"/></svg></a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" ><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" ><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="mailto:ahmad15earn@gmail.com" target="_blank" rel="noopener" aria-label="Email"><svg viewBox="0 0 24 24" ><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div></div>
-<div class="fcol"><b>পণ্য</b><a href="#get">ডাউনলোড</a><a href="#features">ফিচার</a><a href="#howto">ব্যবহার নির্দেশনা</a><a href="#video">ভিডিও</a></div>
+<div class="fcol"><b>পণ্য</b><a href="#get">ডাউনলোড</a><a href="#kothanote">KothaNote (Android)</a><a href="#features">ফিচার</a><a href="#howto">ব্যবহার নির্দেশনা</a><a href="#video">ভিডিও</a></div>
 <div class="fcol"><b>সাহায্য</b><a href="#faq">প্রশ্ন-উত্তর</a><a href="#community">আপনার ভিডিও</a><a href="#message">মেসেজ পাঠান</a><a href="https://github.com/ahmad15earn/KothaBoli-website" target="_blank" rel="noopener">GitHub</a></div>
 <div class="fcol"><b>যোগাযোগ</b><a href="mailto:ahmad15earn@gmail.com">ahmad15earn@gmail.com</a><a href="https://x.com/ahmadrofitw" target="_blank" rel="noopener">X / Twitter</a><a href="https://www.instagram.com/rofilearns/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/ahmad.rofi.155145" target="_blank" rel="noopener">Facebook</a></div>
 </div>
