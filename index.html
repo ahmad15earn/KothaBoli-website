@@ -229,6 +229,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 .kn-sha{display:inline-block;margin-top:10px;font-size:12px;color:var(--mute);text-decoration:underline;text-decoration-color:rgba(91,107,140,.35)}
 .kn-sha:hover{color:var(--blue)}
 @media(max-width:900px){.kn-card{grid-template-columns:1fr;padding:28px 20px}.kn-shots{margin-top:16px;justify-content:flex-start;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}.kn-shot{width:158px;scroll-snap-align:center}.kn-shot.s2{width:172px}.kn-shot.s1{margin-right:-34px}.kn-shot.s3{margin-left:-34px}}
+@media(max-width:600px){.kn-shots{overflow:visible;justify-content:center;padding:6px 0 12px}.kn-shot{width:126px}.kn-shot.s2{width:140px}.kn-shot.s1{margin-right:-24px}.kn-shot.s3{margin-left:-24px}}
 .vdz{margin-top:18px;padding:26px 18px;border-radius:16px;border:2px dashed var(--line);background:#fff;cursor:pointer;color:var(--mute);font-size:14.5px;line-height:1.7;transition:border-color .2s,background .2s;text-align:center}
 .vdz b{color:var(--blue)}
 .vdz small{font-size:12px}
@@ -281,12 +282,12 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 
 <section id="features" class="wrap"><span class="tag rv">ফিচার</span><h2 class="rv">ছোট অ্যাপ, দরকারি সবকিছু</h2>
 <div class="bento">
-<div class="card x rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div><h3>অনলাইনে Google, অফলাইনে Faster-Whisper</h3><p>নেট থাকলে Google ইঞ্জিন, না থাকলে ডিভাইসের AI মডেল।</p></div>
+<div class="card x rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div><h3>সম্পূর্ণ অফলাইন, নিজস্ব AI মডেল</h3><p>Google API নেই — faster-whisper মডেল আপনার পিসিতেই চলে।</p></div>
 <div class="card rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16.5 9a4 4 0 010 6"/></svg></div><h3>অটো-অ্যাম্পলিফিকেশন</h3><p>ফিসফিস করলেও শোনে।</p><div class="meter"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.5s"></i></div></div>
 <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></div><h3>Silence-detection</h3><p>ভাবতে থামলে বন্ধ হয় না।</p></div>
 <div class="card rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13 7l4 4"/></svg></div><h3>অটো ব্যাকরণ</h3><p>দাঁড়ি, কমা, ?, ! আর বানান ঠিক করে।</p></div>
 <div class="card rv d2"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="3"/><circle cx="8" cy="12" r=".6"/></svg></div><h3>ভাসমান widget</h3><p>ছোট ও ট্রান্সপারেন্ট, কথা বললে জাগে।</p></div>
-<div class="card w rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div><h3>গোপনীয়তা</h3><p>অফলাইন মোডে কথা আপনার পিসিতেই থাকে।</p></div>
+<div class="card w rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div><h3>গোপনীয়তা</h3><p>সব অডিও আপনার পিসিতেই প্রসেস হয়; কোনো সার্ভার বা API-তে যায় না।</p></div>
 <div class="card w rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg></div><h3>ফ্রি ও ওপেন সোর্স</h3><p>কোনো সাবস্ক্রিপশন নেই।</p></div>
 </div></section>
 
@@ -319,14 +320,14 @@ footer{margin-top:56px;border-top:1px solid var(--line);background:#fff}
 </div></section>
 
 <section class="wrap"><h2 class="rv">এক নজরে</h2>
-<div class="stats"><div class="rv"><b class="grad" data-n="2">0</b><span>ভাষা, একই বাক্যে</span></div><div class="rv d1"><b class="grad" data-n="100" data-s="%">0</b><span>ফ্রি ও ওপেন সোর্স</span></div><div class="rv d2"><b class="grad" data-n="0">0</b><span>সার্ভারে যাওয়া কথা (অফলাইনে)</span></div></div></section>
+<div class="stats"><div class="rv"><b class="grad" data-n="2">0</b><span>ভাষা, একই বাক্যে</span></div><div class="rv d1"><b class="grad" data-n="100" data-s="%">0</b><span>ফ্রি ও ওপেন সোর্স</span></div><div class="rv d2"><b class="grad" data-n="0">0</b><span>সার্ভারে যাওয়া কথা (কখনোই নয়)</span></div></div></section>
 
 <section id="faq" class="wrap"><span class="tag rv">প্রশ্ন-উত্তর</span><h2 class="rv">জানতে চাইলে</h2>
 <div class="faq rv">
 <details><summary>কোন Windows-এ চলবে?</summary><p>Windows 10 ও Windows 11-এ।</p></details>
 <details><summary>Mac-এ কি চলবে?</summary><p>হ্যাঁ! এখন Mac-ও (Apple Silicon M1/M2/M3 ও পুরনো Intel) সাপোর্ট করে। প্রথমবার খুলতে: ডাউনলোড করা .dmg খুলে KothaBoli-কে Applications-এ টেনে দিন, তারপর অ্যাপে <b>ডান-ক্লিক → Open</b> চাপুন (নতুন অ্যাপের Security সতর্কতা এড়াতে)। শর্টকাট কাজ করাতে System Settings → Privacy &amp; Security → Accessibility-তে KothaBoli-কে চালু করুন।</p></details>
 <details><summary>সত্যিই ফ্রি?</summary><p>হ্যাঁ, সম্পূর্ণ ফ্রি ও ওপেন সোর্স।</p></details>
-<details><summary>ইন্টারনেট ছাড়া চলে?</summary><p>চলে। নেট না থাকলে Faster-Whisper মডেল অফলাইনে কাজ করে।</p></details>
+<details><summary>ইন্টারনেট ছাড়া চলে?</summary><p>চলে। প্রথমবার মডেলটা একবার ডাউনলোড হয়, তারপর ইন্টারনেট ছাড়াই পুরো কাজ চলে — কোনো Google API বা ক্লাউড নেই।</p></details>
 <details><summary>কীভাবে শুরু করব?</summary><p>Setup ফাইল ডাউনলোড করে ইনস্টল করুন। তারপর যেকোনো জায়গায় Ctrl+Alt ধরে কথা বলুন।</p></details>
 <details><summary>কোনো সমস্যা হলে?</summary><p>ahmad15earn@gmail.com-এ ইমেইল করুন, ঠিক করার চেষ্টা করব।</p></details>
 <details><summary>Windows SmartScreen সতর্কতা দিলে?</summary><p>নতুন অ্যাপে এটা স্বাভাবিক। "More info" চেপে "Run anyway" বেছে নিন।</p></details>
